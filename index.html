@@ -25,9 +25,30 @@
     <title>Javascript ToDo App | Leon Potgieter Code Institute PP2</title>
 </head>
 
-<body>
+<body class="body-light">
     <!-- Main Section -->
-    <main>
+    <main class="vertical-wrapper">
+        <header>
+            <h1 class="main-heading">TO DO</h1>
+            <div class="settings-icons">
+                <i class="fa-solid fa-volume-high"></i>
+                <i class="fa-solid fa-sun"></i>
+            </div>
+        </header>
+        <div class="add-new-item-box">
+            <i class="fa-regular fa-circle"></i><span>Create a new todo...</span>
+        </div>
+        <ul class="list-box">
+            <li><i class="fa-regular fa-circle-check"></i></i><span>First todo Item...</span></li>
+            <li><i class="fa-regular fa-circle-check"></i></i><span>Second todo Item...</span></li>
+            <li><i class="fa-regular fa-circle-check"></i></i><span>Third todo Item...</span></li>
+            <li><i class="fa-regular fa-circle-check"></i></i><span>Fourth todo Item...</span></li>
+            <li><i class="fa-regular fa-circle-check"></i></i><span>Fifth todo Item...</span></li>
+        </ul>
+        <section id="controls-section">
+            <span id="items-left"></span>
+            <a href="" id="all.click">All</a>
+        </section>
 
     </main>
     <!-- Local Javacsript Import -->

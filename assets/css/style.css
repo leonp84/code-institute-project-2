@@ -1,0 +1,74 @@
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&family=Quicksand:wght@300..700&display=swap');
+
+/* override default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    min-height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: x-large;
+}
+
+main {
+    background-color: aquamarine;
+    min-height: 100vh;
+    width: 90%;
+    max-width: 750px;
+}
+
+header {
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+
+header i {
+    font-size: 40px;
+    padding: 0 20px;
+}
+
+span {
+    padding: 0 20px;
+}
+
+ul {
+    
+}
+
+li {
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 5px 0;
+    background-color: rgb(240, 240, 120);
+    padding: 10px 30px;
+}
+
+.body-light {
+    background: white url(../images/body-background-light.jpg) no-repeat top center / cover;
+}
+
+.main-heading {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.add-new-item-box {
+    background-color: blanchedalmond;
+    padding: 10px 30px;
+    margin: 15px 0;
+}
+

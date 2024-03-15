@@ -16,13 +16,13 @@ body {
     justify-content: center;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-size: x-large;
+    font-size: 16px;
 }
 
 main {
     background-color: aquamarine;
     min-height: 100vh;
-    width: 90%;
+    width: 94%;
     max-width: 750px;
 }
 
@@ -32,20 +32,30 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 20px;
+    padding: 5px 10px;
 }
 
 header i {
-    font-size: 40px;
-    padding: 0 20px;
+    font-size: 20px;
+    padding: 0 5px;
 }
 
 span {
     padding: 0 20px;
 }
 
+a, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 ul {
-    
+    display: flex 1 auto;
+    flex-direction: column;
 }
 
 li {
@@ -53,7 +63,7 @@ li {
     border: 1px solid black;
     margin: 5px 0;
     background-color: rgb(240, 240, 120);
-    padding: 10px 30px;
+    padding: 10px 15px;
 }
 
 .body-light {
@@ -63,12 +73,46 @@ li {
 .main-heading {
     font-family: "Quicksand", sans-serif;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .add-new-item-box {
     background-color: blanchedalmond;
+    border: 1px solid black;
     padding: 10px 30px;
     margin: 15px 0;
+}
+
+#controls-section {
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    margin: 15px 0 5px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px 0;
+}
+
+#controls-section span {
+    padding: 5px 10px;
+    margin: 0;
+    line-height: 120%;
+}
+
+#second-controls-section {
+    /* background-color: blanchedalmond;
+    border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#second-controls-section button {
+    background-color: blanchedalmond;
+    padding: 5px;
+    font-size: 20px;
+    width: 32%;
 }
 

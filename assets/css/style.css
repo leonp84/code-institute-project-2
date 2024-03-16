@@ -48,11 +48,16 @@ header i {
     padding: 0 5px;
 }
 
-/* span {
-    padding: 0 20px;
-} */
 
-a, a:visited {
+/* The input:focus code below was provided by Chat GPT after I couldn't 
+figure out how to remove the input box border while text is being edited */
+input:focus {
+    outline: none;
+    border: none;
+}
+
+a,
+a:visited {
     text-decoration: none;
     color: inherit;
 }
@@ -165,17 +170,19 @@ footer {
     justify-content: space-evenly;
 }
 
-footer p, footer a { 
+footer p,
+footer a {
     font-size: small;
 }
 
-footer span { 
+footer span {
     padding: 0 5px;
     margin: 0;
     width: 32%;
     display: flex 1 auto;
     text-align: center;
 }
+
 #tech-image {
     width: 80px;
 }
@@ -234,4 +241,3 @@ footer span {
     background-color: rgb(37, 39, 60);
     color: rgb(212, 217, 232);
 }
-

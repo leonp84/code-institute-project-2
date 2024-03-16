@@ -19,9 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('toggle-theme').addEventListener('click', function() {
         toggleTheme() } )
 
+/* Add 3 items to do list as GUI elements to guide the user */
 addItem('Your First Todo Item...');
-addItem('Click the X to delete...');
-addItem('Add more above: priority optional...');
+addItem('Click the X to delete --->');
+document.getElementById('priority-button').checked = true;
+addItem('Add more above: priority optional :)');
 
 })
 

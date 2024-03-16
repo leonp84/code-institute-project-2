@@ -1,8 +1,11 @@
+/* Declare 2 x Global Variables */
+
 let lArray = [];
 let soundEffects = false;
 
-document.addEventListener('DOMContentLoaded', function() { 
+/* Add Click & Hover Eventlisteners once page has loaded */
 
+document.addEventListener('DOMContentLoaded', function() { 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
         if (event.key === 'Enter' ) { addItem() } } )
     document.getElementById('priority-button').addEventListener('click', function() {
@@ -30,20 +33,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 /* Add 3 items to do list as GUI elements to guide the user */
-document.getElementById('userInput').value = ".";
+document.getElementById('userInput').value = "1.";
 addItem('Your First Todo Item...');
-document.getElementById('userInput').value = ".";
+document.getElementById('userInput').value = "2.";
 addItem('Click the X to delete --->');
 document.getElementById('priority-button').checked = true;
-document.getElementById('userInput').value = ".";
+document.getElementById('userInput').value = "3.";
 addItem('Add more above: priority optional :)');
-
 })
 
-/* Add a new Todo item */
+/**
+ * Add a new Todo item
+ */
 function addItem(userInput) {
 
-    if (document.getElementById('userInput').value === "") { 
+    /* Ensure Empty input or spaces are not accepted as valid */
+    if (!document.getElementById('userInput').value.match(/[A-Za-z0-9]/g)) { 
         clearFocus();
         return 
     }
@@ -68,25 +73,43 @@ function addItem(userInput) {
         'priority' : priorityStatus
      });   
 
-    /* Sound Effet - if enabled */
+    /* Sound Effect - if enabled */
     if (soundEffects) { document.getElementById('additem-audio').play() }
 
     displayList();
     clearFocus();
 }
 
-/* Clear input fields and place keyboard focus on input box */
+/**
+ * Clear input fields and place keyboard focus on input box
+ */
 function clearFocus() {
     document.getElementById('userInput').value = "";
     document.getElementById('userInput').focus();
     document.getElementById('priority-button').checked = false;
 }
 
-/* Display Updated List */
+/**
+ * Display Updated List
+ */
 function displayList(type) {
     /* Reorder List Items for avoid sorting function not working */
     for (let i in lArray) {
         lArray[i].order = i;
+    }
+
+    /* Display Vacation message if list is empty */
+    if (lArray.length === 0) {
+        let list = document.body.getElementsByTagName('ul')[0];
+        let newItem = `
+            <div id="vacation-message">
+                <span><i class="fa-solid fa-martini-glass-citrus"></i></span>
+                <p>"And on the seventh day... God rested from all his work."<br><em>(Tip for longevity: You should too!)</em></p>
+                <span><i class="fa-solid fa-umbrella-beach"></i></span>
+            </div>`
+        list.innerHTML = newItem;
+        console.log(list.outerHTML)
+        return;
     }
 
 
@@ -113,7 +136,7 @@ function displayList(type) {
         for (let i in lArray) {
             if (lArray[i].checked === false) { thisArray.push(lArray[i])             }
         }
-        /* Sound Effet - if enabled */
+        /* Sound Effect - if enabled */
         if (soundEffects) { document.getElementById('button-audio').play() }
     }
 
@@ -123,7 +146,7 @@ function displayList(type) {
         for (let i in lArray) {
             if (lArray[i].checked === true) { thisArray.push(lArray[i])             }
         }
-            /* Sound Effet - if enabled */
+            /* Sound Effect - if enabled */
             if (soundEffects) { document.getElementById('button-audio').play() }
     }
 
@@ -151,7 +174,7 @@ function displayList(type) {
         if (darkMode) { listDisplay = 'li-dark' } else { listDisplay = 'li-light' }
     
         let newListItem = document.createElement('li');
-        list.setAttribute('class', `${listDisplay}`)
+        newListItem.setAttribute('class', `${listDisplay}`)
         newListItem.innerHTML = newItem;
 
         /* Update <li> display properties if list item checked */
@@ -187,7 +210,9 @@ function displayList(type) {
 
 }
 
-/* Add Strikethrough text decoration to item for Todo List, when checked */
+/**
+ * Add Strikethrough text decoration to item for Todo List, when checked
+ */
 function strikeItem () {
     for (let i in lArray) {
         if (this.nextElementSibling.textContent === lArray[i].content) {
@@ -197,12 +222,14 @@ function strikeItem () {
     }
     displayList();
 
-    /* Sound Effet - if enabled */
+    /* Sound Effect - if enabled */
     if (soundEffects) { document.getElementById('strikethrough-audio').play() }
 }
 
 
-/* Remove item from Todo list */
+/**
+ * Remove item from Todo list
+ */
 function removeItem () {
     let tempArray = [];
     for (let i in lArray) {
@@ -213,7 +240,9 @@ function removeItem () {
     displayList();
 }
 
-/* Edit Item Text and update list in real time */
+/**
+ * Edit Item Text and update list in real time
+ */
 function editItemText() {
     let numToChange = 0;
     for (let i in lArray) {
@@ -237,7 +266,9 @@ function editItemText() {
     }})
 }
 
-/* Completely Erase striked/checked items from List/Array */
+/**
+ * Completely Erase striked/checked items from List/Array
+ */
 function clearCompleted () {
     let tempArray = [];
     for (let i in lArray) { if (lArray[i].checked !== true) { 
@@ -245,13 +276,15 @@ function clearCompleted () {
     }}
     lArray = tempArray;
 
-    /* Sound Effet - if enabled */
+    /* Sound Effect - if enabled */
     if (soundEffects) { document.getElementById('clear-audio').play() }
 
     displayList();
 }
 
-/* Sorts the Array with checked items at the bottom, and priority items on top */
+/**
+ * Sorts the Array with checked items at the bottom, and priority items on top
+ */
 function sortList() {
     for (let i in lArray) {
         if (lArray[i].checked === true ) {
@@ -263,13 +296,15 @@ function sortList() {
     /* The syntax for the sort function below was written with the help of an external source - see Readme.md */
     lArray.sort(function(arr1, arr2) { return arr1.order - arr2.order });
 
-    /* Sound Effet - if enabled */
+    /* Sound Effect - if enabled */
     if (soundEffects) { document.getElementById('sort-audio').play() }
 
     displayList();
 }
 
-/* Toggle between Light / Dark Mode when toggle-theme button is clicked */
+/**
+ * Toggle between Light / Dark Mode when toggle-theme button is clicked
+ */
 function toggleTheme() {
     let darkMode = (document.body.className === 'body-dark')
     if (darkMode) {
@@ -304,7 +339,9 @@ function toggleTheme() {
     displayList();
 }
 
-/* Toggle Sound On or Off */
+/**
+ * Toggle Sound On or Off
+ */
 function toggleSound() { 
     let soundButton = document.getElementById('toggle-sound');
     let soundOff = (soundButton.className === "fa-solid fa-volume-xmark");
@@ -318,9 +355,9 @@ function toggleSound() {
     }
 }
 
-
-
-
+/**
+ * Enable Hover effect for interactive elements on page
+ */
 function hoverEffect() {
     let currentClass = this.className;
     this.setAttribute('class', 'hoverClass');
@@ -329,14 +366,20 @@ function hoverEffect() {
     })
 }
 
-function preventLoad(event) {
-    event.preventDefault();    
-}
-
+/**
+ * Enable Hover effect for interactive button elements on page
+ */
 function buttonHover() {
     let currentClass = this.className;
     this.setAttribute('class', `${currentClass} buttonHoverClass`);
     this.addEventListener('mouseout', function() {
         this.setAttribute('class', currentClass);
     })
+}
+
+/**
+ * Prevent anchor elements from reloading the page
+ */
+function preventLoad(event) {
+    event.preventDefault();    
 }

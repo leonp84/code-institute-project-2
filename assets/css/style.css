@@ -186,3 +186,14 @@ footer span {
     width: 80px;
 }
 
+.not-priority {
+    color: transparent;
+}
+
+.priority {
+    color: red;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}

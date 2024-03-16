@@ -32,14 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
         links[i].addEventListener('click', preventLoad)
     }
 
-/* Add 3 items to do list as GUI elements to guide the user */
-document.getElementById('userInput').value = "1.";
-addItem('Your First Todo Item...');
-document.getElementById('userInput').value = "2.";
-addItem('Click the X to delete --->');
-document.getElementById('priority-button').checked = true;
-document.getElementById('userInput').value = "3.";
-addItem('Add more above: priority optional :)');
+    /* Add 3 items to do list as GUI elements to guide the user */
+    document.getElementById('userInput').value = "1.";
+    addItem('Your First Todo Item...');
+    document.getElementById('userInput').value = "2.";
+    addItem('Click the X to delete --->');
+    document.getElementById('priority-button').checked = true;
+    document.getElementById('userInput').value = "3.";
+    addItem('Add more above: priority optional :)');
 })
 
 /**
@@ -159,11 +159,11 @@ function displayList(type) {
         
         
         let newItem = `
-        <div>
+        <div id="list-display-first-box">
             <span id="checkbox"><i class="fa-regular fa-circle"></i></span>
-            <span class="">${thisArray[i].content}</span>
+            <span id="item-text-display">${thisArray[i].content}</span>
         </div>
-        <div>
+        <div id="no-wrap-box">
             <span class="not-priority"><i class="fa-solid fa-circle-up"></i></span>
             <span class="remove"><i class="fa-regular fa-circle-xmark"></i></i></span>
         </div>`

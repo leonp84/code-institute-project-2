@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    font-family: "Poppins", sans-serif;
+    font-family: "poppins", sans-serif;
     font-weight: 400;
     font-size: 16px;
     position: relative;
@@ -26,7 +26,7 @@ main {
     background-color: transparent;
     min-height: 80vh;
     width: 94%;
-    max-width: 750px;
+    max-width: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,9 +35,6 @@ main {
 }
 
 header {
-    /* background-color: rgb(208, 210, 236);
-    border: 1px solid black;
-    border-radius: 5px; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,9 +68,9 @@ ul {
 
 li {
     list-style-type: none;
-    border: 1px solid black;
-    margin: 3px 0;
-    background-color: rgb(223, 223, 233);
+    border: 1px solid rgb(135, 135, 135);
+
+    background-color: rgb(238, 238, 244);
     padding: 10px 15px;
     font-weight: 400;
 }
@@ -93,7 +90,6 @@ li {
     background-color: rgb(255, 255, 255);
     border: 1px solid black;
     padding: 10px 15px;
-    border-radius: 5px;
     margin-bottom: 10px;
 }
 
@@ -107,7 +103,6 @@ li {
     align-items: center;
     justify-content: space-evenly;
     padding: 5px 0;
-    border-radius: 5px;
     font-family: "Roboto", sans-serif;
 }
 
@@ -130,13 +125,19 @@ li {
     padding: 5px;
     font-size: 18px;
     width: 32%;
-    border-radius: 5px;
     border: 1px solid rgb(18, 18, 45);
 
 }
 
+.items-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
 #items-left {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 footer {

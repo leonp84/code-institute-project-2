@@ -48,9 +48,9 @@ header i {
     padding: 0 5px;
 }
 
-span {
+/* span {
     padding: 0 20px;
-}
+} */
 
 a, a:visited {
     text-decoration: none;
@@ -69,10 +69,10 @@ ul {
 li {
     list-style-type: none;
     border: 1px solid rgb(135, 135, 135);
-
     background-color: rgb(238, 238, 244);
     padding: 10px 15px;
     font-weight: 400;
+    font-size: 15px;
 }
 
 .body-light {
@@ -91,7 +91,28 @@ li {
     border: 1px solid black;
     padding: 10px 15px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+#userInput {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 5px;
+    margin: 0 10px;
+    font-size: 15px;
+    font-family: "poppins", sans-serif;
+}
+
+.priority-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
 
 #controls-section {
     background-color: rgb(255, 255, 255);
@@ -164,3 +185,4 @@ footer span {
 #tech-image {
     width: 80px;
 }
+

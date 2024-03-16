@@ -1,35 +1,33 @@
 /* Declare 2 x Global Variables */
-
 let lArray = [];
 let soundEffects = false;
 
 /* Add Click & Hover Eventlisteners once page has loaded */
-
 document.addEventListener('DOMContentLoaded', function() { 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter' ) { addItem() } } )
+        if (event.key === 'Enter') { addItem(); } });
     document.getElementById('priority-button').addEventListener('click', function() {
-        addItem() } )
-    document.getElementById('priority-box').addEventListener('mouseover', hoverEffect)
-    document.getElementById('clear-clicked').addEventListener('click', clearCompleted)
+        addItem(); });
+    document.getElementById('priority-box').addEventListener('mouseover', hoverEffect);
+    document.getElementById('clear-clicked').addEventListener('click', clearCompleted);
     document.getElementById('active-clicked').addEventListener('click', function() {
-        displayList('active') } )
+        displayList('active'); });
     document.getElementById('done-clicked').addEventListener('click', function() {
-        displayList('completed') } )
+        displayList('completed'); });
     document.getElementById('all-clicked').addEventListener('click', function() {
-        displayList('all') } )
-    document.getElementById('sort-button').addEventListener('click', sortList)
-    document.getElementById('toggle-theme').addEventListener('click', toggleTheme)
-    document.getElementById('toggle-sound').addEventListener('click', toggleSound)
+        displayList('all'); });
+    document.getElementById('sort-button').addEventListener('click', sortList);
+    document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+    document.getElementById('toggle-sound').addEventListener('click', toggleSound);
 
-    let buttons = document.getElementsByTagName('button') 
-    for (i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('mouseover', buttonHover)
+    let buttons = document.getElementsByTagName('button'); 
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('mouseover', buttonHover);
     }
 
     let links = document.getElementsByTagName('a');
     for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', preventLoad)
+        links[i].addEventListener('click', preventLoad);
     }
 
     /* Add 3 items to do list as GUI elements to guide the user */
@@ -40,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('priority-button').checked = true;
     document.getElementById('userInput').value = "3.";
     addItem('Add more above: priority optional :)');
-})
+});
 
 /**
  * Add a new Todo item
@@ -50,15 +48,15 @@ function addItem(userInput) {
     /* Ensure Empty input or spaces are not accepted as valid */
     if (!document.getElementById('userInput').value.match(/[A-Za-z0-9]/g)) { 
         clearFocus();
-        return 
+        return; 
     }
 
-    if (!userInput) { userInput = document.getElementById('userInput').value }
+    if (!userInput) { userInput = document.getElementById('userInput').value; }
 
 
-    for (i in lArray) {
+    for (let i in lArray) {
         if (lArray[i].content === userInput) {
-            alert("You've already added this item :)")
+            alert("You've already added this item :)");
             clearFocus();
             return;
         }
@@ -74,7 +72,7 @@ function addItem(userInput) {
      });   
 
     /* Sound Effect - if enabled */
-    if (soundEffects) { document.getElementById('additem-audio').play() }
+    if (soundEffects) { document.getElementById('additem-audio').play(); }
 
     displayList();
     clearFocus();
@@ -94,7 +92,7 @@ function clearFocus() {
  */
 function displayList(type) {
     /* Reorder List Items for avoid sorting function not working */
-    for (let i in lArray) {
+    for (let i = 0; i < lArray.length; i++) {
         lArray[i].order = i;
     }
 
@@ -106,23 +104,22 @@ function displayList(type) {
                 <span><i class="fa-solid fa-martini-glass-citrus"></i></span>
                 <p>"And on the seventh day... God rested from all his work."<br><em>(Tip for longevity: You should too!)</em></p>
                 <span><i class="fa-solid fa-umbrella-beach"></i></span>
-            </div>`
+            </div>`;
         list.innerHTML = newItem;
-        console.log(list.outerHTML)
+        console.log(list.outerHTML);
         return;
     }
 
-
-                /* Debug Output */
-                // console.log("=============");
-                // for (let i in lArray) {
-                //     console.log("\n");
-                //     console.log(lArray[i].order);
-                //     console.log(lArray[i].content);
-                //     console.log(lArray[i].checked);
-                //     console.log(lArray[i].priority);
-                // }   
-                // console.log("=============");
+/* Debug Output */
+// console.log("=============");
+// for (let i in lArray) {
+//     console.log("\n");
+//     console.log(lArray[i].order);
+//     console.log(lArray[i].content);
+//     console.log(lArray[i].checked);
+//     console.log(lArray[i].priority);
+// }   
+// console.log("=============");
 
     let list = document.body.getElementsByTagName('ul')[0];
     while (list.firstChild) {
@@ -134,27 +131,27 @@ function displayList(type) {
     if (type === 'active') {
         thisArray = [];
         for (let i in lArray) {
-            if (lArray[i].checked === false) { thisArray.push(lArray[i])             }
+            if (lArray[i].checked === false) { thisArray.push(lArray[i]); }
         }
         /* Sound Effect - if enabled */
-        if (soundEffects) { document.getElementById('button-audio').play() }
+        if (soundEffects) { document.getElementById('button-audio').play(); }
     }
 
     /* Create temporary Array consisting of only 'completed' items for Completed display */
     if (type === 'completed') {
         thisArray = [];
         for (let i in lArray) {
-            if (lArray[i].checked === true) { thisArray.push(lArray[i])             }
+            if (lArray[i].checked === true) { thisArray.push(lArray[i]); }
         }
             /* Sound Effect - if enabled */
-            if (soundEffects) { document.getElementById('button-audio').play() }
+            if (soundEffects) { document.getElementById('button-audio').play(); }
     }
 
     if (type === 'all') {
-        if (soundEffects) { document.getElementById('button-audio').play() } }
+        if (soundEffects) { document.getElementById('button-audio').play(); } }
 
     /* Add new item with specified properties, using custom HTML */
-     for (i = 0; i < thisArray.length; i++) {
+     for (let i = 0; i < thisArray.length; i++) {
         
         
         
@@ -166,35 +163,35 @@ function displayList(type) {
         <div id="no-wrap-box">
             <span class="not-priority"><i class="fa-solid fa-circle-up"></i></span>
             <span class="remove"><i class="fa-regular fa-circle-xmark"></i></i></span>
-        </div>`
+        </div>`;
 
         /* Check for Dark Mode before displaying items to avoid color clash */
         let listDisplay = "";
-        let darkMode = (document.body.className === 'body-dark')
-        if (darkMode) { listDisplay = 'li-dark' } else { listDisplay = 'li-light' }
+        let darkMode = (document.body.className === 'body-dark');
+        if (darkMode) { listDisplay = 'li-dark'; } else { listDisplay = 'li-light'; }
     
         let newListItem = document.createElement('li');
-        newListItem.setAttribute('class', `${listDisplay}`)
+        newListItem.setAttribute('class', `${listDisplay}`);
         newListItem.innerHTML = newItem;
 
         /* Update <li> display properties if list item checked */
         if (thisArray[i].checked === true) {
-            newListItem.children[0].children[1].setAttribute('class', `strikethrough`)
-            newListItem.children[0].children[0].innerHTML = `<i class="fa-solid fa-circle-check"></i>`
+            newListItem.children[0].children[1].setAttribute('class', `strikethrough`);
+            newListItem.children[0].children[0].innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
         }
 
         /* Update <li> display properties if list item = priority */
         if (thisArray[i].priority === true) {
-            newListItem.children[1].children[0].setAttribute('class', 'priority')
+            newListItem.children[1].children[0].setAttribute('class', 'priority');
         }
 
         let checkbutton = newListItem.children[0].children[0];
         checkbutton.addEventListener('click', strikeItem);
         checkbutton.addEventListener('mouseover', hoverEffect);
-        let xButton = newListItem.children[1].children[1]
+        let xButton = newListItem.children[1].children[1];
         xButton.addEventListener('mouseover', hoverEffect);
         xButton.addEventListener('click', removeItem);
-        let itemText = newListItem.children[0].children[1]
+        let itemText = newListItem.children[0].children[1];
         itemText.addEventListener('mouseover', hoverEffect);
         itemText.addEventListener('click', editItemText);
 
@@ -206,7 +203,7 @@ function displayList(type) {
     let itemsLeftNumber = 0;
     for (let i in lArray) {
         if (lArray[i].checked !== true ) { itemsLeftNumber++; }}
-    itemsLeft.innerHTML = `${itemsLeftNumber} items left`
+    itemsLeft.innerHTML = `${itemsLeftNumber} items left`;
 
 }
 
@@ -223,7 +220,7 @@ function strikeItem () {
     displayList();
 
     /* Sound Effect - if enabled */
-    if (soundEffects) { document.getElementById('strikethrough-audio').play() }
+    if (soundEffects) { document.getElementById('strikethrough-audio').play(); }
 }
 
 
@@ -234,7 +231,7 @@ function removeItem () {
     let tempArray = [];
     for (let i in lArray) {
         if (this.parentNode.previousElementSibling.children[1].textContent !== lArray[i].content) {
-            tempArray.push(lArray[i]) 
+            tempArray.push(lArray[i]); 
     }}
     lArray = tempArray;
     displayList();
@@ -246,13 +243,13 @@ function removeItem () {
 function editItemText() {
     let numToChange = 0;
     for (let i in lArray) {
-        if (lArray[i].content == this.textContent) { numToChange = i}
+        if (lArray[i].content == this.textContent) { numToChange = i; }
     }
 
     let replace = document.createElement('input');
     replace.type = "text";
     replace.id = "editing";
-    replace.setAttribute('class', 'listDisplay')
+    replace.setAttribute('class', 'listDisplay');
     replace.value = this.textContent;
     this.parentNode.appendChild(replace);
     this.remove();
@@ -263,7 +260,7 @@ function editItemText() {
         let newContent = document.getElementById('editing').value; 
         lArray[numToChange].content = newContent;
         displayList();
-    }})
+    }});
 }
 
 /**
@@ -272,12 +269,12 @@ function editItemText() {
 function clearCompleted () {
     let tempArray = [];
     for (let i in lArray) { if (lArray[i].checked !== true) { 
-        tempArray.push(lArray[i]) 
+        tempArray.push(lArray[i]); 
     }}
     lArray = tempArray;
 
     /* Sound Effect - if enabled */
-    if (soundEffects) { document.getElementById('clear-audio').play() }
+    if (soundEffects) { document.getElementById('clear-audio').play(); }
 
     displayList();
 }
@@ -288,16 +285,16 @@ function clearCompleted () {
 function sortList() {
     for (let i in lArray) {
         if (lArray[i].checked === true ) {
-            lArray[i].order = lArray.length
+            lArray[i].order = lArray.length;
         } else if (lArray[i].priority === true ) {
             lArray[i].order = i - lArray.length;
         }
     }
     /* The syntax for the sort function below was written with the help of an external source - see Readme.md */
-    lArray.sort(function(arr1, arr2) { return arr1.order - arr2.order });
+    lArray.sort(function(arr1, arr2) { return arr1.order - arr2.order; });
 
     /* Sound Effect - if enabled */
-    if (soundEffects) { document.getElementById('sort-audio').play() }
+    if (soundEffects) { document.getElementById('sort-audio').play(); }
 
     displayList();
 }
@@ -306,7 +303,7 @@ function sortList() {
  * Toggle between Light / Dark Mode when toggle-theme button is clicked
  */
 function toggleTheme() {
-    let darkMode = (document.body.className === 'body-dark')
+    let darkMode = (document.body.className === 'body-dark');
     if (darkMode) {
         document.body.setAttribute('class', 'body-light');
         document.getElementById('controls-section').setAttribute('class', 'light');
@@ -316,13 +313,13 @@ function toggleTheme() {
         document.getElementById('sort-button').setAttribute('class', 'light');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {
-            x[i].setAttribute('class', 'li-light') }
+            x[i].setAttribute('class', 'li-light'); }
 
         /* Change Theme Icon when Clicked */
-        document.getElementById('toggle-theme').setAttribute('class', 'fa-solid fa-moon')
+        document.getElementById('toggle-theme').setAttribute('class', 'fa-solid fa-moon');
 
     } else {
-        document.body.setAttribute('class', 'body-dark')
+        document.body.setAttribute('class', 'body-dark');
         document.getElementById('controls-section').setAttribute('class', 'dark');
         document.getElementById('add-new-item-box').setAttribute('class', 'dark');
         document.getElementById('import-button').setAttribute('class', 'dark');
@@ -330,10 +327,10 @@ function toggleTheme() {
         document.getElementById('sort-button').setAttribute('class', 'dark');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {
-            x[i].setAttribute('class', 'li-dark') }
+            x[i].setAttribute('class', 'li-dark'); }
         
         /* Change Theme Icon when Clicked */
-        document.getElementById('toggle-theme').setAttribute('class', 'fa-solid fa-sun')
+        document.getElementById('toggle-theme').setAttribute('class', 'fa-solid fa-sun');
 
         }
     displayList();
@@ -347,10 +344,10 @@ function toggleSound() {
     let soundOff = (soundButton.className === "fa-solid fa-volume-xmark");
     
     if (soundOff) {
-        soundButton.className = "fa-solid fa-volume-high"
+        soundButton.className = "fa-solid fa-volume-high";
         soundEffects = true;
     } else {
-        soundButton.className = "fa-solid fa-volume-xmark"
+        soundButton.className = "fa-solid fa-volume-xmark";
         soundEffects = false;
     }
 }
@@ -363,7 +360,7 @@ function hoverEffect() {
     this.setAttribute('class', 'hoverClass');
     this.addEventListener('mouseout', function() {
         this.setAttribute('class', currentClass);
-    })
+    });
 }
 
 /**
@@ -374,7 +371,7 @@ function buttonHover() {
     this.setAttribute('class', `${currentClass} buttonHoverClass`);
     this.addEventListener('mouseout', function() {
         this.setAttribute('class', currentClass);
-    })
+    });
 }
 
 /**

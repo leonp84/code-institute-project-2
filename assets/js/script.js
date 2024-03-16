@@ -1,4 +1,5 @@
 let lArray = [];
+let soundEffects = false;
 
 document.addEventListener('DOMContentLoaded', function() { 
 
@@ -12,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         displayList('active') } )
     document.getElementById('done-clicked').addEventListener('click', function() {
         displayList('completed') } )
-    document.getElementById('all-clicked').addEventListener('click', displayList)
+    document.getElementById('all-clicked').addEventListener('click', function() {
+        displayList('all') } )
     document.getElementById('sort-button').addEventListener('click', sortList)
     document.getElementById('toggle-theme').addEventListener('click', toggleTheme)
     document.getElementById('toggle-sound').addEventListener('click', toggleSound)
@@ -65,6 +67,10 @@ function addItem(userInput) {
         'checked' : false,
         'priority' : priorityStatus
      });   
+
+    /* Sound Effet - if enabled */
+    if (soundEffects) { document.getElementById('additem-audio').play() }
+
     displayList();
     clearFocus();
 }
@@ -107,6 +113,8 @@ function displayList(type) {
         for (let i in lArray) {
             if (lArray[i].checked === false) { thisArray.push(lArray[i])             }
         }
+        /* Sound Effet - if enabled */
+        if (soundEffects) { document.getElementById('button-audio').play() }
     }
 
     /* Create temporary Array consisting of only 'completed' items for Completed display */
@@ -115,7 +123,12 @@ function displayList(type) {
         for (let i in lArray) {
             if (lArray[i].checked === true) { thisArray.push(lArray[i])             }
         }
+            /* Sound Effet - if enabled */
+            if (soundEffects) { document.getElementById('button-audio').play() }
     }
+
+    if (type === 'all') {
+        if (soundEffects) { document.getElementById('button-audio').play() } }
 
     /* Add new item with specified properties, using custom HTML */
      for (i = 0; i < thisArray.length; i++) {
@@ -183,6 +196,9 @@ function strikeItem () {
         }
     }
     displayList();
+
+    /* Sound Effet - if enabled */
+    if (soundEffects) { document.getElementById('strikethrough-audio').play() }
 }
 
 
@@ -228,9 +244,14 @@ function clearCompleted () {
         tempArray.push(lArray[i]) 
     }}
     lArray = tempArray;
+
+    /* Sound Effet - if enabled */
+    if (soundEffects) { document.getElementById('clear-audio').play() }
+
     displayList();
 }
 
+/* Sorts the Array with checked items at the bottom, and priority items on top */
 function sortList() {
     for (let i in lArray) {
         if (lArray[i].checked === true ) {
@@ -241,6 +262,10 @@ function sortList() {
     }
     /* The syntax for the sort function below was written with the help of an external source - see Readme.md */
     lArray.sort(function(arr1, arr2) { return arr1.order - arr2.order });
+
+    /* Sound Effet - if enabled */
+    if (soundEffects) { document.getElementById('sort-audio').play() }
+
     displayList();
 }
 
@@ -286,8 +311,10 @@ function toggleSound() {
     
     if (soundOff) {
         soundButton.className = "fa-solid fa-volume-high"
+        soundEffects = true;
     } else {
         soundButton.className = "fa-solid fa-volume-xmark"
+        soundEffects = false;
     }
 }
 
@@ -308,9 +335,7 @@ function preventLoad(event) {
 
 function buttonHover() {
     let currentClass = this.className;
-    console.log(this.className)
     this.setAttribute('class', `${currentClass} buttonHoverClass`);
-    console.log(this.className)
     this.addEventListener('mouseout', function() {
         this.setAttribute('class', currentClass);
     })

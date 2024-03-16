@@ -25,7 +25,9 @@
 
 <body class="body-light">
     <!-- Main Section -->
-    <main class="main-light">
+    <main>
+
+        <!-- Header Section -->
         <header>
             <h1 class="main-heading">T O D O</h1>
             <div id="settings-icons">
@@ -33,6 +35,8 @@
                 <i class="fa-solid fa-moon" id="toggle-theme"></i>
             </div>
         </header>
+
+        <!-- User Input Box for adding new Items to Todo list -->
         <div id="add-new-item-box" class="light">
             <span><i class="fa-regular fa-circle" style="color:rgb(216, 210, 201)"></i><input type="text" id="userInput"
                     placeholder="Create a new todo..."></span>
@@ -41,11 +45,15 @@
                 <input type="checkbox" name="priority-button" id="priority-button">
             </div>
         </div>
+
+        <!-- Main List Display -->
         <ul>
 
-            <!-- <li> List items will be populated here via Javascript -->
+            <!-- List items <li> will be populated here via Javascript -->
 
         </ul>
+
+        <!-- First Controls Section -->
         <section id="controls-section" class="light">
             <h2 class="hidden">First Controls Section</h2>
             <span><a href="" id="all-clicked">All</a></span>
@@ -53,18 +61,24 @@
             <span><a href="" id="done-clicked">Done</a></span>
             <span><a href="" id="clear-clicked">Clear</a></span>
         </section>
+
+        <!-- Second Controls (Buttons) Section -->
         <section id="second-controls-section">
             <h2 class="hidden">Second Controls Section</h2>
             <button id="import-button" class="light">Import</button>
             <button id="sort-button" class="light">Sort List</button>
             <button id="export-button" class="light">Export</button>
         </section>
+
+        <!-- Display Items Left on List -->
         <section class="items-left">
             <h2 class="hidden">How many items are left?</h2>
             <span id="items-left">10 Items Left</span>
         </section>
 
     </main>
+
+    <!-- Footer -->
     <footer>
         <span><a href="https://github.com/leonp84/" target="_blank">L.A. Potgieter</a></span>
         <img id="tech-image" src="assets/images/tech.png" alt="HTML, CSS & Javascript Logos">

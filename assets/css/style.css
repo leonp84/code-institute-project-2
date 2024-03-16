@@ -48,29 +48,9 @@ header i {
     padding: 0 5px;
 }
 
-#checkbox {
-    font-size: 18px;
-    padding-right: 5px;;
-}
-
-#vacation-message {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 20px 0;
-    font-weight: 400;
-}
-
-#vacation-message p {
-    padding: 0 15px;
-    text-align: center;
-}
-
-/* The input:focus code below was provided by Chat GPT after I couldn't 
-figure out how to remove the input box border while text is being edited */
-input:focus {
-    outline: none;
-    border: none;
+/* Hidden styling for h2 Headings */
+.hidden {
+    display: none;
 }
 
 a,
@@ -99,10 +79,42 @@ li {
     border: 1px solid rgb(135, 135, 135);
 }
 
+/* The input:focus code below was provided by Chat GPT after I couldn't 
+figure out how to remove the input box border while text is being edited */
+input:focus {
+    outline: none;
+    border: none;
+}
+
 .main-heading {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-size: 40px;
+}
+
+.items-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#checkbox {
+    font-size: 18px;
+    padding-right: 5px;;
+}
+
+#vacation-message {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 0;
+    font-weight: 400;
+}
+
+#vacation-message p {
+    padding: 0 15px;
+    text-align: center;
 }
 
 #add-new-item-box {
@@ -131,7 +143,6 @@ li {
     font-size: small;
 }
 
-
 #controls-section {
     margin: 10px 0 5px 0;
     display: flex;
@@ -150,7 +161,6 @@ li {
 }
 
 #second-controls-section {
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -163,15 +173,27 @@ li {
     width: 32%;
 }
 
-.items-left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-}
-
 #items-left {
     font-weight: 600;
+}
+
+#item-text-display {
+    display:inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 70vw;
+    overflow-y: hidden;
+    padding-left: 5px;
+}
+
+#no-wrap-box {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#list-display-first-box {
+    display: flex;
+    align-items: center;
 }
 
 footer {
@@ -189,6 +211,10 @@ footer a {
     font-size: small;
 }
 
+#tech-image {
+    width: 80px;
+}
+
 footer span {
     padding: 0 5px;
     margin: 0;
@@ -197,9 +223,7 @@ footer span {
     text-align: center;
 }
 
-#tech-image {
-    width: 80px;
-}
+/* Styling used by Javascript */
 
 .not-priority {
     color: transparent;
@@ -224,7 +248,7 @@ footer span {
     padding-left: 5px;
 }
 
-/* Styles for Dark & Light Theme specific */
+/* Styles for Dark & Light Theme specific - Used by Javascript */
 
 .body-light {
     background: white url(../images/body-background-light.webp) no-repeat top center / cover;
@@ -258,7 +282,8 @@ footer span {
     color: rgb(212, 217, 232);
 }
 
-/* Add Hover Effect with Mouse Over */
+/* Add Hover Effect with Mouse Over - Used by Javascript */
+
 .hoverClass {
     color: rgb(199, 14, 14);
     cursor: pointer;
@@ -268,27 +293,4 @@ footer span {
     color: rgb(137, 61, 61);
     cursor: pointer;
     box-shadow: 1px 2px 20px -10px rgba(0, 0, 0, 0.7)
-}
-
-#item-text-display {
-    display:inline-flex;
-    flex-direction: row;
-    align-items: flex-start;
-    max-width: 70vw;
-    overflow-y: hidden;
-    padding-left: 5px;
-}
-
-#no-wrap-box {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-#list-display-first-box {
-    display: flex;
-    align-items: center;
-}
-
-.hidden {
-    display: none;
 }

@@ -4,21 +4,26 @@ let soundEffects = false;
 
 /* Add Click & Hover Eventlisteners once page has loaded */
 document.addEventListener('DOMContentLoaded', function() { 
-    document.getElementById('userInput').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') { addItem(); } });
-    document.getElementById('priority-button').addEventListener('click', function() {
-        addItem(); });
-    document.getElementById('priority-box').addEventListener('mouseover', hoverEffect);
-    document.getElementById('clear-clicked').addEventListener('click', clearCompleted);
-    document.getElementById('active-clicked').addEventListener('click', function() {
-        displayList('active'); });
-    document.getElementById('done-clicked').addEventListener('click', function() {
-        displayList('completed'); });
-    document.getElementById('all-clicked').addEventListener('click', function() {
-        displayList('all'); });
-    document.getElementById('sort-button').addEventListener('click', sortList);
-    document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-    document.getElementById('toggle-sound').addEventListener('click', toggleSound);
+    document.getElementById('userInput').addEventListener('keydown', 
+        function(event) { if (event.key === 'Enter') { addItem(); } });
+    document.getElementById('priority-button').addEventListener('click', 
+        function() { addItem(); });
+    document.getElementById('active-clicked').addEventListener('click', 
+        function() { displayList('active'); });
+    document.getElementById('done-clicked').addEventListener('click', 
+        function() { displayList('completed'); });
+    document.getElementById('all-clicked').addEventListener('click', 
+        function() { displayList('all'); });
+    document.getElementById('priority-box').addEventListener('mouseover', 
+        hoverEffect);
+    document.getElementById('clear-clicked').addEventListener('click', 
+        clearCompleted);
+    document.getElementById('sort-button').addEventListener('click', 
+        sortList);
+    document.getElementById('toggle-theme').addEventListener('click', 
+        toggleTheme);
+    document.getElementById('toggle-sound').addEventListener('click', 
+        toggleSound);
 
     let buttons = document.getElementsByTagName('button'); 
     for (let i = 0; i < buttons.length; i++) {
@@ -30,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         links[i].addEventListener('click', preventLoad);
     }
 
-    /* Add 3 items to do list as GUI elements to guide the user */
+    /* Add 3 items to Todo list as GUI elements to guide the user */
     document.getElementById('userInput').value = "1.";
     addItem('Your First Todo Item...');
     document.getElementById('userInput').value = "2.";
@@ -38,22 +43,21 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('priority-button').checked = true;
     document.getElementById('userInput').value = "3.";
     addItem('Add more above: priority optional :)');
+
 });
 
 /**
  * Add a new Todo item
  */
 function addItem(userInput) {
-
     /* Ensure Empty input or spaces are not accepted as valid */
     if (!document.getElementById('userInput').value.match(/[A-Za-z0-9]/g)) { 
         clearFocus();
         return; 
     }
-
     if (!userInput) { userInput = document.getElementById('userInput').value; }
 
-
+    /* Ensure duplicate items are not accepted as valid */
     for (let i in lArray) {
         if (lArray[i].content === userInput) {
             alert("You've already added this item :)");
@@ -62,6 +66,7 @@ function addItem(userInput) {
         }
     }
 
+    /* Add new item to Array */
     let priorityStatus = document.getElementById('priority-button').checked;
     let order = lArray.length;
     lArray.push( {
@@ -121,6 +126,7 @@ function displayList(type) {
 // }   
 // console.log("=============");
 
+    /* Remove old displayed list */
     let list = document.body.getElementsByTagName('ul')[0];
     while (list.firstChild) {
         list.removeChild(list.firstChild);
@@ -152,9 +158,6 @@ function displayList(type) {
 
     /* Add new item with specified properties, using custom HTML */
      for (let i = 0; i < thisArray.length; i++) {
-        
-        
-        
         let newItem = `
         <div id="list-display-first-box">
             <span id="checkbox"><i class="fa-regular fa-circle"></i></span>
@@ -185,6 +188,7 @@ function displayList(type) {
             newListItem.children[1].children[0].setAttribute('class', 'priority');
         }
 
+        /* Add Click & Hover Eventlisteners to newly populated <li> items */
         let checkbutton = newListItem.children[0].children[0];
         checkbutton.addEventListener('click', strikeItem);
         checkbutton.addEventListener('mouseover', hoverEffect);
@@ -195,6 +199,7 @@ function displayList(type) {
         itemText.addEventListener('mouseover', hoverEffect);
         itemText.addEventListener('click', editItemText);
 
+        /* Add new List item to the bottom of the current list */
         list.appendChild(newListItem);
     }
 
@@ -290,6 +295,7 @@ function sortList() {
             lArray[i].order = i - lArray.length;
         }
     }
+    
     /* The syntax for the sort function below was written with the help of an external source - see Readme.md */
     lArray.sort(function(arr1, arr2) { return arr1.order - arr2.order; });
 

@@ -302,8 +302,8 @@ function toggleTheme() {
         document.body.setAttribute('class', 'body-light');
         document.getElementById('controls-section').setAttribute('class', 'light');
         document.getElementById('add-new-item-box').setAttribute('class', 'light');
-        document.getElementById('import-button').setAttribute('class', 'light');
-        document.getElementById('export-button').setAttribute('class', 'light');
+        // document.getElementById('import-button').setAttribute('class', 'light');
+        // document.getElementById('export-button').setAttribute('class', 'light');
         document.getElementById('sort-button').setAttribute('class', 'light');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {
@@ -316,8 +316,8 @@ function toggleTheme() {
         document.body.setAttribute('class', 'body-dark');
         document.getElementById('controls-section').setAttribute('class', 'dark');
         document.getElementById('add-new-item-box').setAttribute('class', 'dark');
-        document.getElementById('import-button').setAttribute('class', 'dark');
-        document.getElementById('export-button').setAttribute('class', 'dark');
+        // document.getElementById('import-button').setAttribute('class', 'dark');
+        // document.getElementById('export-button').setAttribute('class', 'dark');
         document.getElementById('sort-button').setAttribute('class', 'dark');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {

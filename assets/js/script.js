@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
         addItem() } )
     document.getElementById('clear-clicked').addEventListener('click', function() {
         clearCompleted() } )
+    document.getElementById('active-clicked').addEventListener('click', function() {
+        displayList('active') } )
+    document.getElementById('done-clicked').addEventListener('click', function() {
+        displayList('completed') } )
+    document.getElementById('all-clicked').addEventListener('click', function() {
+        displayList() } )
+    document.getElementById('sort-button').addEventListener('click', function() {
+        sortList() } )
+    document.getElementById('toggle-theme').addEventListener('click', function() {
+        toggleTheme() } )
 
 addItem('Your First Todo Item...');
 addItem('Click the X to delete...');
@@ -48,30 +58,44 @@ function clearFocus() {
 
 /* Display Updated List */
 function displayList(type) {
-    
     /* Reorder List Items for avoid sorting function not working */
     for (let i in lArray) {
         lArray[i].order = i;
     }
 
 
-                /* Debug Output */
-                console.log("=============");
-                for (let i in lArray) {
-                    console.log("\n");
-                    console.log(lArray[i].order);
-                    console.log(lArray[i].content);
-                    console.log(lArray[i].checked);
-                    console.log(lArray[i].priority);
-                }   
-                console.log("=============");
-
+                // /* Debug Output */
+                // console.log("=============");
+                // for (let i in lArray) {
+                //     console.log("\n");
+                //     console.log(lArray[i].order);
+                //     console.log(lArray[i].content);
+                //     console.log(lArray[i].checked);
+                //     console.log(lArray[i].priority);
+                // }   
+                // console.log("=============");
 
     let list = document.body.getElementsByTagName('ul')[0];
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
     let thisArray = lArray;
+
+    /* Create temporary Array consisting of only 'active' items for Active display */
+    if (type === 'active') {
+        thisArray = [];
+        for (let i in lArray) {
+            if (lArray[i].checked === false) { thisArray.push(lArray[i])             }
+        }
+    }
+
+    /* Create temporary Array consisting of only 'completed' items for Completed display */
+    if (type === 'completed') {
+        thisArray = [];
+        for (let i in lArray) {
+            if (lArray[i].checked === true) { thisArray.push(lArray[i])             }
+        }
+    }
 
     /* Add new item with specified properties, using custom HTML */
      for (i = 0; i < thisArray.length; i++) {
@@ -85,14 +109,22 @@ function displayList(type) {
             <span class="remove">X</span>
         </div>`
 
+        /* Check for Dark Mode before displaying items to avoid color clash */
+        let listDisplay = "";
+        let darkMode = (document.body.className === 'body-dark')
+        if (darkMode) { listDisplay = 'li-dark' } else { listDisplay = 'li-light' }
+    
         let newListItem = document.createElement('li');
+        list.setAttribute('class', `${listDisplay}`)
         newListItem.innerHTML = newItem;
 
+        /* Update <li> display properties if list item checked */
         if (thisArray[i].checked === true) {
             newListItem.children[0].children[1].setAttribute('class', `strikethrough`)
             newListItem.children[0].children[0].setAttribute('checked', 'checked')
         }
 
+        /* Update <li> display properties if list item = priority */
         if (thisArray[i].priority === true) {
             newListItem.children[1].children[0].setAttribute('class', 'priority')
         }
@@ -167,5 +199,47 @@ function clearCompleted () {
         tempArray.push(lArray[i]) 
     }}
     lArray = tempArray;
+    displayList();
+}
+
+function sortList() {
+    for (let i in lArray) {
+        if (lArray[i].checked === true ) {
+            lArray[i].order = lArray.length
+        } else if (lArray[i].priority === true ) {
+            lArray[i].order = i - lArray.length;
+        }
+    }
+    /* The syntax for the sort function below was written with the help of an external source - see Readme.md */
+    lArray.sort(function(arr1, arr2) { return arr1.order - arr2.order });
+    displayList();
+}
+
+/* Toggle between Light / Dark Mode when toggle-theme button is clicked */
+function toggleTheme() {
+    let darkMode = (document.body.className === 'body-dark')
+    if (darkMode) {
+        document.body.setAttribute('class', 'body-light');
+        document.getElementById('controls-section').setAttribute('class', 'light');
+        document.getElementById('add-new-item-box').setAttribute('class', 'light');
+        document.getElementById('import-button').setAttribute('class', 'light');
+        document.getElementById('export-button').setAttribute('class', 'light');
+        document.getElementById('sort-button').setAttribute('class', 'light');
+        let x = document.getElementsByTagName('li');
+        for (let i = 0; i < x.length; i++) {
+            console.log(x[i])
+            x[i].setAttribute('class', 'li-light') }
+    } else {
+        document.body.setAttribute('class', 'body-dark')
+        document.getElementById('controls-section').setAttribute('class', 'dark');
+        document.getElementById('add-new-item-box').setAttribute('class', 'dark');
+        document.getElementById('import-button').setAttribute('class', 'dark');
+        document.getElementById('export-button').setAttribute('class', 'dark');
+        document.getElementById('sort-button').setAttribute('class', 'dark');
+        let x = document.getElementsByTagName('li');
+        for (let i = 0; i < x.length; i++) {
+            console.log(x[i])
+            x[i].setAttribute('class', 'li-dark') }
+        }
     displayList();
 }

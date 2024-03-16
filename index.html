@@ -26,15 +26,15 @@
 
 <body class="body-light">
     <!-- Main Section -->
-    <main class="vertical-wrapper">
+    <main class="main-light">
         <header>
             <h1 class="main-heading">T O D O</h1>
             <div class="settings-icons">
                 <i class="fa-solid fa-volume-high"></i>
-                <i class="fa-solid fa-sun"></i>
+                <i class="fa-solid fa-sun" id="toggle-theme"></i>
             </div>
         </header>
-        <div class="add-new-item-box">
+        <div id="add-new-item-box" class="light">
             <span><i class="fa-regular fa-circle"></i><input type="text" id="userInput" placeholder="Create a new todo..."></span>
             <div class="priority-box">
                 <label for="priority-button">Priority?</label>
@@ -43,20 +43,19 @@
         </div>
         <ul>
 
-            <li><i class="fa-regular fa-circle-check"></i></i><span>First todo Item...</span></li>
-            <li><i class="fa-regular fa-circle-check"></i></i><span>Second todo Item...</span></li>
+            <!-- <li> List items will be populated here via Javascript -->
 
         </ul>
-        <section id="controls-section">
-            <span><a href="" id="all-clicked">All</a></span>
-            <span><a href="" id="active-clicked">Active</a></span>
-            <span><a href="" id="done-clicked">Done</a></span>
+        <section id="controls-section" class="light">
+            <span><p id="all-clicked">All</p></span>
+            <span><p id="active-clicked">Active</p></span>
+            <span><p id="done-clicked">Done</p></span>
             <span><p id="clear-clicked">Clear</p></span>
         </section>
         <section id="second-controls-section">
-            <button>Import</button>
-            <button>Sort List</button>
-            <button>Export</button>
+            <button id="import-button" class="light">Import</button>
+            <button id="sort-button" class="light">Sort List</button>
+            <button id="export-button" class="light">Export</button>
         </section>
         <section class="items-left">
         <span id="items-left">10 Items Left</span>

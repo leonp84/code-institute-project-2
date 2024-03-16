@@ -133,6 +133,7 @@ input:focus {
     font-size: 15px;
     font-family: "poppins", sans-serif;
     color: inherit;
+    max-width: 60vw;
 }
 
 #priority-box {
@@ -163,7 +164,7 @@ input:focus {
 #second-controls-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     font-family: "Roboto", sans-serif;
 }
 
@@ -171,6 +172,7 @@ input:focus {
     padding: 5px;
     font-size: 18px;
     width: 32%;
+    border-radius: 5px;
 }
 
 #items-left {
@@ -189,6 +191,7 @@ input:focus {
 #no-wrap-box {
     display: flex;
     flex-wrap: nowrap;
+    align-items: center;
 }
 
 #list-display-first-box {
@@ -241,11 +244,12 @@ footer span {
 
 #editing {
     background-color: transparent;
-    border: none;
+    border: 1px solid black;
     font-size: inherit;
     font-family: inherit;
     color: inherit;
     padding-left: 5px;
+    width: 220px;
 }
 
 /* Styles for Dark & Light Theme specific - Used by Javascript */

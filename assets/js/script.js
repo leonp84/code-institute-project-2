@@ -381,8 +381,10 @@ function buttonHover() {
 }
 
 /**
- * Prevent anchor elements from reloading the page
+ * Prevent anchor elements from reloading the page (aside from footer link)
  */
 function preventLoad(event) {
+    if (this.textContent !== "L.A. Potgieter") {
     event.preventDefault();    
+    }
 }

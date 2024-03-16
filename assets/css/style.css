@@ -203,7 +203,7 @@ footer {
     width: 100%;
     max-width: 320px;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

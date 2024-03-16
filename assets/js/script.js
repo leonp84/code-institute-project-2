@@ -35,14 +35,16 @@ document.addEventListener('DOMContentLoaded', function() {
         links[i].addEventListener('click', preventLoad);
     }
 
-    /* Add 3 items to Todo list as GUI elements to guide the user */
+    /* Add 4 items to Todo list as GUI elements to guide the user */
     document.getElementById('userInput').value = "1.";
     addItem('Your First Todo Item...');
     document.getElementById('userInput').value = "2.";
-    addItem('Click the X to delete --->');
-    document.getElementById('priority-button').checked = true;
+    addItem('Click the ⨂ to delete');
     document.getElementById('userInput').value = "3.";
-    addItem('Add more above: priority optional :)');
+    addItem('Click text to edit content');
+    document.getElementById('priority-button').checked = true;
+    document.getElementById('userInput').value = "4.";
+    addItem('Add more above - priority optional');
 
 });
 
@@ -60,7 +62,7 @@ function addItem(userInput) {
     /* Ensure duplicate items are not accepted as valid */
     for (let i in lArray) {
         if (lArray[i].content === userInput) {
-            alert("You've already added this item :)");
+            alert("*! You've already added this item !*");
             clearFocus();
             return;
         }
@@ -302,8 +304,6 @@ function toggleTheme() {
         document.body.setAttribute('class', 'body-light');
         document.getElementById('controls-section').setAttribute('class', 'light');
         document.getElementById('add-new-item-box').setAttribute('class', 'light');
-        // document.getElementById('import-button').setAttribute('class', 'light');
-        // document.getElementById('export-button').setAttribute('class', 'light');
         document.getElementById('sort-button').setAttribute('class', 'light');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {
@@ -316,8 +316,6 @@ function toggleTheme() {
         document.body.setAttribute('class', 'body-dark');
         document.getElementById('controls-section').setAttribute('class', 'dark');
         document.getElementById('add-new-item-box').setAttribute('class', 'dark');
-        // document.getElementById('import-button').setAttribute('class', 'dark');
-        // document.getElementById('export-button').setAttribute('class', 'dark');
         document.getElementById('sort-button').setAttribute('class', 'dark');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {

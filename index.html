@@ -9,8 +9,7 @@
     <meta name="keywords" content="To-do list, Task management, Productivity tool, Task organizer, 
     Deadline management, Priority setting, Time management, Workflow optimization, Goal tracking, Online planner">
     <meta name="description" content="Stay organized and boost productivity with our intuitive online to-do app. 
-        Effortlessly manage tasks, set deadlines, and prioritize goals from anywhere. 
-        Start streamlining your workflow today!">
+        Manage tasks, set deadlines, and prioritize goals from anywhere.">
     <meta name="author" content="Leon Potgieter">
 
     <!-- Favicon-->
@@ -29,14 +28,14 @@
     <main class="main-light">
         <header>
             <h1 class="main-heading">T O D O</h1>
-            <div class="settings-icons">
-                <i class="fa-solid fa-volume-high"></i>
-                <i class="fa-solid fa-sun" id="toggle-theme"></i>
+            <div id="settings-icons">
+                <i class="fa-solid fa-volume-xmark" id="toggle-sound"></i>
+                <i class="fa-solid fa-moon" id="toggle-theme"></i>
             </div>
         </header>
         <div id="add-new-item-box" class="light">
-            <span><i class="fa-regular fa-circle"></i><input type="text" id="userInput" placeholder="Create a new todo..."></span>
-            <div class="priority-box">
+            <span><i class="fa-regular fa-circle" style="color:rgb(216, 210, 201)"></i><input type="text" id="userInput" placeholder="Create a new todo..."></span>
+            <div id="priority-box">
                 <label for="priority-button">Priority?</label>
                 <input type="checkbox" name="priority-button" id="priority-button">
             </div>
@@ -47,10 +46,10 @@
 
         </ul>
         <section id="controls-section" class="light">
-            <span><p id="all-clicked">All</p></span>
-            <span><p id="active-clicked">Active</p></span>
-            <span><p id="done-clicked">Done</p></span>
-            <span><p id="clear-clicked">Clear</p></span>
+            <span><a href=""  id="all-clicked">All</a></span>
+            <span><a href=""  id="active-clicked">Active</a></span>
+            <span><a href="" id="done-clicked">Done</a></span>
+            <span><a href="" id="clear-clicked">Clear</a></span>
         </section>
         <section id="second-controls-section">
             <button id="import-button" class="light">Import</button>

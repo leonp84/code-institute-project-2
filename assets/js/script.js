@@ -6,31 +6,49 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.key === 'Enter' ) { addItem() } } )
     document.getElementById('priority-button').addEventListener('click', function() {
         addItem() } )
-    document.getElementById('clear-clicked').addEventListener('click', function() {
-        clearCompleted() } )
+    document.getElementById('priority-box').addEventListener('mouseover', hoverEffect)
+    document.getElementById('clear-clicked').addEventListener('click', clearCompleted)
     document.getElementById('active-clicked').addEventListener('click', function() {
         displayList('active') } )
     document.getElementById('done-clicked').addEventListener('click', function() {
         displayList('completed') } )
-    document.getElementById('all-clicked').addEventListener('click', function() {
-        displayList() } )
-    document.getElementById('sort-button').addEventListener('click', function() {
-        sortList() } )
-    document.getElementById('toggle-theme').addEventListener('click', function() {
-        toggleTheme() } )
+    document.getElementById('all-clicked').addEventListener('click', displayList)
+    document.getElementById('sort-button').addEventListener('click', sortList)
+    document.getElementById('toggle-theme').addEventListener('click', toggleTheme)
+    document.getElementById('toggle-sound').addEventListener('click', toggleSound)
+
+    let buttons = document.getElementsByTagName('button') 
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('mouseover', buttonHover)
+    }
+
+    let links = document.getElementsByTagName('a');
+    for (let i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', preventLoad)
+    }
 
 /* Add 3 items to do list as GUI elements to guide the user */
+document.getElementById('userInput').value = ".";
 addItem('Your First Todo Item...');
+document.getElementById('userInput').value = ".";
 addItem('Click the X to delete --->');
 document.getElementById('priority-button').checked = true;
+document.getElementById('userInput').value = ".";
 addItem('Add more above: priority optional :)');
 
 })
 
 /* Add a new Todo item */
 function addItem(userInput) {
+
+    if (document.getElementById('userInput').value === "") { 
+        clearFocus();
+        return 
+    }
+
     if (!userInput) { userInput = document.getElementById('userInput').value }
-    if (userInput === "") { return; }
+
+
     for (i in lArray) {
         if (lArray[i].content === userInput) {
             alert("You've already added this item :)")
@@ -66,7 +84,7 @@ function displayList(type) {
     }
 
 
-                // /* Debug Output */
+                /* Debug Output */
                 // console.log("=============");
                 // for (let i in lArray) {
                 //     console.log("\n");
@@ -101,14 +119,17 @@ function displayList(type) {
 
     /* Add new item with specified properties, using custom HTML */
      for (i = 0; i < thisArray.length; i++) {
+        
+        
+        
         let newItem = `
         <div>
-          <input type="checkbox" class="checkbox">
-          <span class="">${thisArray[i].content}</span>
+            <span id="checkbox"><i class="fa-regular fa-circle"></i></span>
+            <span class="">${thisArray[i].content}</span>
         </div>
         <div>
-            <span class="not-priority">0</span>
-            <span class="remove">X</span>
+            <span class="not-priority"><i class="fa-solid fa-circle-up"></i></span>
+            <span class="remove"><i class="fa-regular fa-circle-xmark"></i></i></span>
         </div>`
 
         /* Check for Dark Mode before displaying items to avoid color clash */
@@ -123,7 +144,7 @@ function displayList(type) {
         /* Update <li> display properties if list item checked */
         if (thisArray[i].checked === true) {
             newListItem.children[0].children[1].setAttribute('class', `strikethrough`)
-            newListItem.children[0].children[0].setAttribute('checked', 'checked')
+            newListItem.children[0].children[0].innerHTML = `<i class="fa-solid fa-circle-check"></i>`
         }
 
         /* Update <li> display properties if list item = priority */
@@ -131,9 +152,15 @@ function displayList(type) {
             newListItem.children[1].children[0].setAttribute('class', 'priority')
         }
 
-        newListItem.children[0].children[0].addEventListener('click', strikeItem);
-        newListItem.children[1].children[1].addEventListener('click', removeItem);
-        newListItem.children[0].children[1].addEventListener('click', editItemText);
+        let checkbutton = newListItem.children[0].children[0];
+        checkbutton.addEventListener('click', strikeItem);
+        checkbutton.addEventListener('mouseover', hoverEffect);
+        let xButton = newListItem.children[1].children[1]
+        xButton.addEventListener('mouseover', hoverEffect);
+        xButton.addEventListener('click', removeItem);
+        let itemText = newListItem.children[0].children[1]
+        itemText.addEventListener('mouseover', hoverEffect);
+        itemText.addEventListener('click', editItemText);
 
         list.appendChild(newListItem);
     }
@@ -229,8 +256,11 @@ function toggleTheme() {
         document.getElementById('sort-button').setAttribute('class', 'light');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {
-            console.log(x[i])
             x[i].setAttribute('class', 'li-light') }
+
+        /* Change Theme Icon when Clicked */
+        document.getElementById('toggle-theme').setAttribute('class', 'fa-solid fa-moon')
+
     } else {
         document.body.setAttribute('class', 'body-dark')
         document.getElementById('controls-section').setAttribute('class', 'dark');
@@ -240,8 +270,48 @@ function toggleTheme() {
         document.getElementById('sort-button').setAttribute('class', 'dark');
         let x = document.getElementsByTagName('li');
         for (let i = 0; i < x.length; i++) {
-            console.log(x[i])
             x[i].setAttribute('class', 'li-dark') }
+        
+        /* Change Theme Icon when Clicked */
+        document.getElementById('toggle-theme').setAttribute('class', 'fa-solid fa-sun')
+
         }
     displayList();
+}
+
+/* Toggle Sound On or Off */
+function toggleSound() { 
+    let soundButton = document.getElementById('toggle-sound');
+    let soundOff = (soundButton.className === "fa-solid fa-volume-xmark");
+    
+    if (soundOff) {
+        soundButton.className = "fa-solid fa-volume-high"
+    } else {
+        soundButton.className = "fa-solid fa-volume-xmark"
+    }
+}
+
+
+
+
+function hoverEffect() {
+    let currentClass = this.className;
+    this.setAttribute('class', 'hoverClass');
+    this.addEventListener('mouseout', function() {
+        this.setAttribute('class', currentClass);
+    })
+}
+
+function preventLoad(event) {
+    event.preventDefault();    
+}
+
+function buttonHover() {
+    let currentClass = this.className;
+    console.log(this.className)
+    this.setAttribute('class', `${currentClass} buttonHoverClass`);
+    console.log(this.className)
+    this.addEventListener('mouseout', function() {
+        this.setAttribute('class', currentClass);
+    })
 }

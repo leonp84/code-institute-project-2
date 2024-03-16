@@ -111,20 +111,9 @@ function displayList(type) {
                 <span><i class="fa-solid fa-umbrella-beach"></i></span>
             </div>`;
         list.innerHTML = newItem;
-        console.log(list.outerHTML);
+        document.getElementById('items-left').innerHTML = `0 items left`;
         return;
     }
-
-/* Debug Output */
-// console.log("=============");
-// for (let i in lArray) {
-//     console.log("\n");
-//     console.log(lArray[i].order);
-//     console.log(lArray[i].content);
-//     console.log(lArray[i].checked);
-//     console.log(lArray[i].priority);
-// }   
-// console.log("=============");
 
     /* Remove old displayed list */
     let list = document.body.getElementsByTagName('ul')[0];
@@ -209,7 +198,6 @@ function displayList(type) {
     for (let i in lArray) {
         if (lArray[i].checked !== true ) { itemsLeftNumber++; }}
     itemsLeft.innerHTML = `${itemsLeftNumber} items left`;
-
 }
 
 /**

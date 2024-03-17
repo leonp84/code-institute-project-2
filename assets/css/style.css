@@ -31,8 +31,6 @@ main {
     flex-direction: column;
     justify-content: center;
     margin: 40px 0 60px 0;
-    position: relative;
-
 }
 
 header {
@@ -42,6 +40,7 @@ header {
     justify-content: space-between;
     padding: 0 10px;
     margin-bottom: 5px;
+    position: relative;
 }
 
 header i {
@@ -286,15 +285,16 @@ footer span {
 #info-box {
     padding: 10px 0;
     width: 90%;
-    height: 425px;
-    position: absolute;
-    top: 110px;
-    left: 16px;
+    height: 455px;
     text-align: center;
     font-size: small;
+    position:absolute;
+    top: 60px;
+    left: 15px;
+    z-index: 99;
 }
 
-#info-box #info-box-text {
+.info-box-text {
     padding: 8px 8px 0 8px;
     line-height: 150%;
 }
@@ -329,13 +329,21 @@ footer span {
     border-bottom: 3px solid #e2dbd8;
 }
 
-/* Adjust Info box positioning on screens larger than 450px */
+/* Adjust Info box positioning on screens larger than 375px */
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 370px) {
     #info-box {
-        top: 120px;
+        height: 390px;
+        left: 15px;
+    }
+}
+
+/* Adjust Info box positioning on screens larger than 530px */
+
+@media screen and (min-width: 530px) {
+    #info-box {
+        height: 330px;
         left: 25px;
-        height: 400px;
     }
 
     #info-box #info-box-text {

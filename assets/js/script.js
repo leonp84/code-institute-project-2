@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
         clearCompleted);
     document.getElementById('sort-button').addEventListener('click', 
         sortList);
+    document.getElementById('show-info').addEventListener('click', 
+        showInfo);
     document.getElementById('toggle-theme').addEventListener('click', 
         toggleTheme);
     document.getElementById('toggle-sound').addEventListener('click', 
@@ -306,6 +308,9 @@ function toggleTheme() {
         document.getElementById('add-new-item-box').setAttribute('class', 'light');
         document.getElementById('sort-button').setAttribute('class', 'light');
         let x = document.getElementsByTagName('li');
+        if (document.getElementById('info-box').className !== 'hidden') { 
+            document.getElementById('info-box').setAttribute('class', 'info-box-light');
+        }
         for (let i = 0; i < x.length; i++) {
             x[i].setAttribute('class', 'li-light'); }
 
@@ -318,6 +323,9 @@ function toggleTheme() {
         document.getElementById('add-new-item-box').setAttribute('class', 'dark');
         document.getElementById('sort-button').setAttribute('class', 'dark');
         let x = document.getElementsByTagName('li');
+        if (document.getElementById('info-box').className !== 'hidden') { 
+            document.getElementById('info-box').setAttribute('class', 'info-box-dark');
+        }
         for (let i = 0; i < x.length; i++) {
             x[i].setAttribute('class', 'li-dark'); }
         
@@ -373,4 +381,20 @@ function preventLoad(event) {
     if (this.textContent !== "L.A. Potgieter") {
     event.preventDefault();    
     }
+}
+
+function showInfo() {
+    let currentClass = document.getElementById('info-box').className;
+    let infoBoxInvisible = currentClass === 'hidden';
+    let listDisplay = "";
+    let darkMode = (document.body.className === 'body-dark');
+        if (darkMode) { listDisplay = 'info-box-dark'; } else { listDisplay = 'info-box-light'; }
+
+    if (infoBoxInvisible) {
+        document.getElementById('info-box').setAttribute('class', `${listDisplay}`);
+    } else {
+        document.getElementById('info-box').setAttribute('class', 'hidden');
+    }
+
+
 }

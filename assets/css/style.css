@@ -31,6 +31,7 @@ main {
     flex-direction: column;
     justify-content: center;
     margin: 40px 0 60px 0;
+    position: relative;
 
 }
 
@@ -57,10 +58,6 @@ a,
 a:visited {
     text-decoration: none;
     color: inherit;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 ul {
@@ -286,15 +283,83 @@ footer span {
     color: rgb(212, 217, 232);
 }
 
-/* Add Hover Effect with Mouse Over - Used by Javascript */
-
-.hoverClass {
-    color: rgb(199, 14, 14);
-    cursor: pointer;
+#info-box {
+    padding: 10px 0;
+    width: 90%;
+    height: 425px;
+    position: absolute;
+    top: 110px;
+    left: 16px;
+    text-align: center;
+    font-size: small;
 }
 
-.buttonHoverClass {
-    color: rgb(137, 61, 61);
-    cursor: pointer;
-    box-shadow: 1px 2px 20px -10px rgba(0, 0, 0, 0.7)
+#info-box #info-box-text {
+    padding: 8px 8px 0 8px;
+    line-height: 150%;
+}
+
+.info-box-light {
+    background-color: #f0f3f7;
+    border: 3px solid #2C5288;
+    box-shadow: 2px 3px 30px #688EBA;
+}
+
+.info-box-light div {
+    margin-top: 5px;
+    width: 100%;
+    height: 80px;
+    background: #f0f3f7 url('../images/infobox-light.jpg') no-repeat center center / cover;
+    border-top: 3px solid #2C5288;
+    border-bottom: 3px solid #2C5288;
+}
+
+.info-box-dark {
+    background-color: #150903;
+    border: 3px solid #e2dbd8;
+    box-shadow: 2px 3px 30px #887977;
+}
+
+.info-box-dark div {
+    margin-top: 5px;
+    width: 100%;
+    height: 80px;
+    background: #f0f3f7 url('../images/infobox-dark.jpg') no-repeat center center / cover;
+    border-top: 3px solid #e2dbd8;
+    border-bottom: 3px solid #e2dbd8;
+}
+
+/* Adjust Info box positioning on screens larger than 450px */
+
+@media screen and (min-width: 500px) {
+    #info-box {
+        top: 120px;
+        left: 25px;
+        height: 400px;
+    }
+
+    #info-box #info-box-text {
+        padding: 10px 15px 0 15px;
+        line-height: 150%;
+        font-size: 15px;
+    }
+}
+
+/* Add Hover Effect with Mouse Over / larger screens only - Used by Javascript */
+
+@media screen and (min-width: 769px) {
+    .hoverClass {
+        color: rgb(199, 14, 14);
+        cursor: pointer;
+    }
+    
+    .buttonHoverClass {
+        color: rgb(137, 61, 61);
+        cursor: pointer;
+        box-shadow: 1px 2px 20px -10px rgba(0, 0, 0, 0.7)
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 }

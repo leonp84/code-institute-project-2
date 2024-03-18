@@ -146,6 +146,7 @@ function displayList(type) {
             if (soundEffects) { document.getElementById('button-audio').play(); }
     }
 
+    /* Sound Effect - if enabled */
     if (type === 'all') {
         if (soundEffects) { document.getElementById('button-audio').play(); } }
 
@@ -406,6 +407,9 @@ function preventLoad(event) {
     }
 }
 
+/**
+ * Show/Hide info box when info button clicked by user
+ */
 function showInfo() {
     let currentClass = document.getElementById('info-box').className;
     let infoBoxInvisible = currentClass === 'hidden';
@@ -418,6 +422,4 @@ function showInfo() {
     } else {
         document.getElementById('info-box').setAttribute('class', 'hidden');
     }
-
-
 }

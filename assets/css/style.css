@@ -223,7 +223,26 @@ footer span {
     text-align: center;
 }
 
-/* Styling used by Javascript */
+/* Styles for the (initially hidden) info box */
+
+#info-box {
+    padding: 10px 0;
+    width: 90%;
+    height: 455px;
+    text-align: center;
+    font-size: small;
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    z-index: 99;
+}
+
+.info-box-text {
+    padding: 8px 8px 0 8px;
+    line-height: 150%;
+}
+
+/* Styling used by JavaScript */
 
 .not-priority {
     color: transparent;
@@ -249,7 +268,7 @@ footer span {
     width: 220px;
 }
 
-/* Styles for Dark & Light Theme specific - Used by Javascript */
+/* Styles for Dark & Light Theme specific - Used by JavaScript */
 
 .body-light {
     background: white url(../images/body-background-light.webp) no-repeat top center / cover;
@@ -281,23 +300,6 @@ footer span {
 .li-dark {
     background-color: rgb(37, 39, 60);
     color: rgb(212, 217, 232);
-}
-
-#info-box {
-    padding: 10px 0;
-    width: 90%;
-    height: 455px;
-    text-align: center;
-    font-size: small;
-    position: absolute;
-    top: 60px;
-    left: 15px;
-    z-index: 99;
-}
-
-.info-box-text {
-    padding: 8px 8px 0 8px;
-    line-height: 150%;
 }
 
 .info-box-light {

@@ -75,7 +75,7 @@ The sentences below outline possible motivations of *potential users* visiting t
 
 ### Site Concept
 
-As a not-for-profit endeavour, I wanted the TODO online web app to serve visitors by providing basic a productivity tool to boost efficiency without unnecessary extras. The User experience had to therefore fulfil the following goals:
+As a not-for-profit endeavour, I wanted the TODO online web app to serve visitors by providing a basic productivity tool to boost efficiency without unnecessary extras. The User experience had to therefore fulfil the following goals:
 
 1. Be visually simple and minimalistic – essentially distraction-free.
 
@@ -123,7 +123,13 @@ In keeping with the app’s minimalistic design, the site logo simply consists o
 
 #### Header
 
-With the logo positioned left, the right-hand side of the header includes three buttons: (1) An information box activation toggle, (2) A sound effects toggle and, (3) A dark/light theme toggle. The Header is fully responsive, and the heading font colours adjust with the rest of the site when the visual theme is changed by the user.
+With the logo positioned left, the right-hand side of the header includes three buttons:
+
+1. An information box activation toggle
+2. A sound effects toggle and
+3. A dark/light theme toggle. 
+
+The Header is fully responsive, and the heading font colours adjust with the rest of the site when the visual theme is changed by the user.
 
 ![Site Header](assets/images/readme-images/readme-header.webp)
 
@@ -183,7 +189,7 @@ Each task is listed in the order they were entered, with priority tasks addition
 
 ![Items Checked in To do List](assets/images/readme-images/readme-items-checked.webp)
 
-2. Each task can be clicked on, and the text automatically turns into an input field, with the current text now editable. Users can change the text and press ‘Enter’ to save the new wording. The edited items remain in place and is subject to the same validation process as regular new items.
+2. Each item's text can be clicked on, and the text automatically turns into an input field, with the current text now editable. Users can change the text and press ‘Enter’ to save the new wording. The edited items remain in place and is subject to the same validation process as regular new items.
 
 3. Users can completely remove tasks from the list by clicking the ‘X’ to the right of each displayed item.
 
@@ -199,15 +205,15 @@ Under the displayed list, a section with user controls is presented.
 
 1. Clicking **‘All’** displays the entire list, irrespective of items status.
 
-2. Clicking **'Active’** displays items that have not been checked (and has a line-through text).
+2. Clicking **'Active’** displays items that have not been checked.
 
-3. Clicking **‘Done’** displays items that the user have checked as completed.
+3. Clicking **‘Done’** displays items that the user have checked as completed (and has a line-through text).
 
 4. Clicking **‘Clear’** completely removes all checked items from the list with only active tasks remaining. The user can use this button to minify the list if desired.
 
-5. Clicking **‘Sort’** will sort the list in place, with priority items placed at the top, and checked (completed) items at the bottom (Image Below).
+5. Clicking **‘Sort’** will sort the list in place, with priority items placed at the top, and checked (completed) items at the bottom (see example image below).
 
-6. The number of items left on the to do list are displayed below the sort button. This number dynamically updates as users check/uncheck an item or adds new ones to the ist.
+6. The number of items left on the to do list is displayed below the sort button. This number dynamically updates as users check/uncheck an item or adds new ones to the list.
 
 7. On larger screens, the user control buttons include a hover effect for visual feedback.
 
@@ -220,7 +226,7 @@ Under the displayed list, a section with user controls is presented.
 
 ![Information Box](assets/images/readme-images/readme-info-box.webp)
 
-The optional information box is displayed when the user clicks on the ‘i’ button in the header. The box uses absolute positioning to not cover the header (since the user needs to deactivate the box with the same ‘i' button). The box is responsive and adjusts its colours based on the dark/light theme. The box image also updates depending on the theme. The box message contain a short motivation for users on the usefulness of a to do list.
+The optional information box is displayed when the user clicks on the **‘i’** button in the header. The box uses absolute positioning to not cover the header (since the user needs to deactivate the box with the same **‘i'** button). The box is responsive and adjusts its colours based on the dark/light theme. The box image also updates depending on the theme. The box message contain a short motivation for users on the usefulness of a to do list.
 
 #### Footer
 
@@ -230,15 +236,15 @@ The footer contains an external link to my GitHub profile and some copyright inf
 
 ### Future Ideas
 
-1.	Adding state permanence: Adding the ability for the currently entered data to remain in the app even when the app is refreshed.
+1.	Adding state permanence: Adding the ability for the currently entered data to remain in the app even when the browser is refreshed.
 
-2.	Adding JSON import and export: Making it possible for users to actually save their data to an external file, that is saved on their computer hard drives and can again be imported later. In this way, the app can be used long term without the need of a back-end database.
+2.	Adding JSON import and export: Making it possible for users to actually save their data to an external file, that is saved on their computer hard drives and can again be imported later. In this way, the app can be used long term even without a back-end database.
 
 3.	Drag and Drop functionality: Allowing users to manually change the order of the to do list simply by dragging and dropping individual items to a new place in the list.
 
 ## Testing
 
-The site was extensively tested using various screen sizes of different heights/widths to check for layout breakage. All internal links were checked to be working. Most of the testing revolved around validating text input when new items are entered, or existing items edited.
+The site was extensively tested using various screen sizes of different heights/widths to check for layout breakage. All internal links were checked to be working. Most of the further testing revolved around validating text input when new items are entered, or existing items edited.
 
 ### Manual Testing
 
@@ -314,11 +320,11 @@ The site was tested with Google Lighthouse using Chrome Developer Tools and the 
 
 ### Bugs
 
-- Building and deploying a more data-intensive app, such as an interactive to-do list, involved resolving numerous bugs, which formed a significant part of the development journey. Below are some of the more prominent bugs encountered during testing, all of which have been fixed.
+Building and deploying a more data-intensive app, such as an interactive to-do list, involved resolving numerous bugs, which formed a significant part of the development journey. Below are some of the more prominent bugs encountered during testing, all of which have been fixed.
 
-- Initially, JSHint showed many warnings (over 300). The majority of these were missing semicolons, particularly in instances where variables were not properly assigned. All issues were addressed and resolved.
+- Initially, JSHint showed many warnings (over 300). The majority of these were missing semicolons or instances where variables were not properly assigned. All issues were addressed and resolved.
 
-- The CSS Jigsaw validator identified incorrect input text (`display: flex 1 auto`) and unused CSS properties that I had previously implemented but were no longer necessary. These were removed, and the display property was updated to simply `display: flex`.
+- The CSS Jigsaw validator identified incorrect text (`display: flex 1 auto`) and unused CSS properties that I had previously implemented but were no longer necessary. These were removed, and the display property was updated to simply `display: flex`.
 
 - The HTML validator reported incorrect `<id>` usage, where I accidentally assigned the same id to multiple elements. I switched to using classes instead.
 
@@ -330,9 +336,9 @@ The site was tested with Google Lighthouse using Chrome Developer Tools and the 
 
 - I later realized that editing the text of an existing item allowed users to bypass text validation. To address this, I implemented the same validation process used for new items, also for existing items being edited.
 
-- The text input still accepted an input consisting of a continuous string of letters without spaces. This caused the text display in the to-do list to break the design, with the text bleeding out of bounds into the background. To address this issue, the CSS overflow: hidden property was implemented.
+- The text input (still) accepts an input consisting of a continuous string of letters without spaces. This caused the text display in the to-do list to break the design, with the text bleeding out of bounds into the background. To address this issue, the CSS overflow: hidden property was implemented.
 
-- Initially, the Hover functionality was implemented on all screen sizes, which resulted in odd visual indicators when buttons were clicked on mobile devices. This was resolved using a Media Query.
+- Initially, the Hover functionality was implemented on all screen sizes, which resulted in odd visual indicators when buttons were pressed on mobile devices. This was resolved using a Media Query.
 
 - Initially, the Information Box popup was tied to the `<main>` tag, which caused it to cover the header when the screen vertical size was very long. To solve this issue, I tied its positioning to the header itself instead of to the `<main>` tag.
 
@@ -366,13 +372,13 @@ GitHub Repository: https://github.com/leonp84/code-institute-project-2
 
 - W3Schools proved an invaluable resource in helping with the following: <br>(1) [Array Sorting by Object Property]( https://www.scaler.com/topics/javascript-sort-an-array-of-objects/) <br>(2) [Using the Array.filter method](https://www.w3schools.com/jsref/jsref_filter.asp)<br>(3) [Using Javascript to play HTML Audio]( https://www.w3schools.com/jsref/met_audio_play.asp) <br> (3) [Using CSS ‘overflow: hidden’ with ‘display: inline-block’](https://www.w3schools.com/css/css_overflow.asp)
 
-- The tests and exercises at [JSCodeBox](https://jscodebox.com/) proved especially helpful in refining my Javascript skills for this project and helping me deal for Arrays and Objects.
+- The tests and exercises at [JSCodeBox](https://jscodebox.com/) proved especially helpful in refining my Javascript skills for this project and helping me deal with JavaScript Arrays, Objects and its properties.
 
 ### Media
 
 -	Favicon icon and data Generated with [favicon.io](https://favicon.io/favicon-converter/).
 
--	A variety of in-text icons of index.html provided by [Font Awesome](https://www.fontawesome.com).
+-	A variety of in-text icons on index.html provided by [Font Awesome](https://www.fontawesome.com).
 
 -	Background images were purchased and adapted from [Adobe Stock](https://stock.adobe.com/at/).
 

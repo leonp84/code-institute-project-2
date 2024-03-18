@@ -1,8 +1,8 @@
-# SmokeStack Society
+# T O D O
 
 Welcome to the Readme file for TODO, a multi-functional online to do app using HTML, CSS & JavaScript.
 
-**A note to the assessors:** *As per recommendation of my mentor I want to mention that I built the JavaScript part of this app in a previous repository to first check whether the project was feasible with my current skill level. With the development of **this**, final project, some code from that previous built was then copied and pasted into this one. I mention that in case the short time frame between commits of (especially) the JavaScript part of this projects raise any red flags.*
+**A note to the assessors:** *As recommended by my Code Institute Mentor, I want to mention that I built the JavaScript part of this app in a previous repository to first check whether the project was feasible with my current skill level. With the development of **this**, final project, some code from that previous built was then copied and pasted into this one. I mention that in case the short time frame between commits of (especially) the JavaScript part of this project raise any red flags.*
 
 ![Site Screenshot showing responsiveness across devices](assets/images/readme-images/website-mockups.webp)
 

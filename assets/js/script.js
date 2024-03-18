@@ -242,6 +242,8 @@ function editItemText() {
     for (let i in lArray) {
         if (lArray[i].content == this.textContent) { numToChange = i; }
     }
+    let oldText = lArray[numToChange].content;
+    console.log(oldText)
 
     let replace = document.createElement('input');
     replace.type = "text";
@@ -255,6 +257,27 @@ function editItemText() {
     document.getElementById('editing').addEventListener('keydown', function(event) {
       if (event.key === 'Enter') {
         let newContent = document.getElementById('editing').value; 
+
+        /* Validate Edited Text*/
+
+        /* Ensure Empty input or spaces are not accepted as valid */
+        if (!newContent.match(/[A-Za-z0-9]/g)) { 
+            console.log('no');
+            lArray[numToChange].content = oldText;
+            console.log(lArray[numToChange].content)
+            displayList();
+            return;
+        }
+
+        /* Ensure duplicate items are not accepted as valid */
+        for (let i in lArray) {
+            if (lArray[i].content === newContent) {
+                lArray[numToChange].content = oldText;
+                alert("*! You've already added this item !*");
+                displayList();
+                return;
+            }
+        }
         lArray[numToChange].content = newContent;
         displayList();
     }});

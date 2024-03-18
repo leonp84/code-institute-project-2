@@ -235,7 +235,8 @@ No errors were returned when passing through the official W3C (Jigsaw) validator
 
 - Javacscript
 No errors were returned when passing through the JSHint JavaScript validation tool. Below a screenshot of the results.
-![JSHint Results](assets/images/readme-images/jshint-snippet.webp.webp)
+
+![JSHint Results](assets/images/readme-images/readme-jshint-snippet.webp)
 
 
 
@@ -244,7 +245,7 @@ No errors were returned when passing through the JSHint JavaScript validation to
 
 The site was tested with Google Lighthouse using Chrome Developer Tools and the results for index.html are shown below.
 
-![Lighthouse Test Results](assets/images/readme-images/lighthouse-test.webp)
+![Lighthouse Test Results](assets/images/readme-images/readme-lighthouse-test.webp)
 
 
 ### Bugs
@@ -253,7 +254,7 @@ With the building and deployment of a more data intensive app such as an interac
 
 - Xx
 
--  Xx
+- Xx
 
 - Xx
 

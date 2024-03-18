@@ -12,7 +12,34 @@ Welcome to the Readme file for TODO, a multi-functional online to do app using H
 
 ## Table of Contents
 
-… TOC Here …
+1. [Overview](#overview)
+2. [UX](#ux)
+    - [User Stories](#user-stories)
+    - [Site Concept](#site-concept)
+    - [Wireframing](#wireframing)
+        - [Desktop](#desktop)
+        - [Mobile](#mobile)
+    - [Site Design](#site-design)
+3. [Features](#features)
+    - [Existing Features](#existing-features)
+        - [Site Logo](#site-logo)
+        - [Header](#header)
+        - [Add New User Item](#add-new-user-item)
+        - [Main List Display](#main-list-display)
+        - [User Controls](#user-controls)
+        - [Optional Information Box](#optional-information-box)
+        - [Footer](#footer)
+    - [Future Ideas](#future-ideas)
+4. [Testing](#testing)
+    - [Manual Testing](#manual-testing)
+    - [Validator Testing](#validator-testing)
+    - [Lighthouse Testing](#lighthouse-testing)
+    - [Bugs](#bugs)
+5. [Deployment](#deployment)
+    - [Links](#links)
+6. [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
 
 ## Overview
 
@@ -60,7 +87,6 @@ As a not-for-profit endeavour, I wanted the TODO online web app to serve visitor
 
 5. Provide an optional information box with a short motivational text on the value of a to do list.
 
-
 ### Wireframing
 
 After the site concept was finalised, time was taken to create a wireframe mock-up of the app. The app consists of a single landing page with hidden visual elements (an information box) that the user can toggle. Wireframing was done with [Balsamiq](https://balsamiq.com/) software.
@@ -82,7 +108,6 @@ To aid in providing a distraction free experience for visitors, a colour palette
 
 *Site Colour Palette Dark Mode*
 ![Site colour palette Dark](assets/images/readme-images/readme-colour-palette-dark.webp)
-
 
 ## Features
 
@@ -127,8 +152,6 @@ With the sound toggle on, five sound effects are played – depending on the bro
 
 *Screenshot of Light Theme activated:*
 ![Site Light Theme](assets/images/readme-images/readme-light-mode.webp)
-
-
 
 #### Add New User Item
 
@@ -193,22 +216,17 @@ Under the displayed list, a section with user controls is presented.
 *Main To do list after the user has clicked on the ‘Sort’ button*<br>
 ![List Sorted](assets/images/readme-images/readme-list-sorted.webp)
 
-
 #### Optional Information Box
 
 ![Information Box](assets/images/readme-images/readme-info-box.webp)
 
 The optional information box is displayed when the user clicks on the ‘i’ button in the header. The box uses absolute positioning to not cover the header (since the user needs to deactivate the box with the same ‘i' button). The box is responsive and adjusts its colours based on the dark/light theme. The box image also updates depending on the theme. The box message contain a short motivation for users on the usefulness of a to do list.
 
-
 #### Footer
 
 The footer contains an external link to my GitHub profile and some copyright information. A small image with the logos of the technologies used in the app design is also centered in the footer. The footer uses absolute positioning and remains fixed to the bottom of the page.
 
 ![Site Footer](assets/images/readme-images/readme-footer.webp)
-
-
-
 
 ### Future Ideas
 
@@ -288,41 +306,35 @@ The site was extensively tested using various screen sizes of different heights/
 
 ![JSHint Results](assets/images/readme-images/readme-jshint-snippet.webp)
 
-
-
-
 ### Lighthouse Testing
 
 The site was tested with Google Lighthouse using Chrome Developer Tools and the results for index.html are shown below.
 
 ![Lighthouse Test Results](assets/images/readme-images/readme-lighthouse-test.webp)
 
-
 ### Bugs
 
-With the building and deployment of a more data intensive app such as an interactive to do list, squashing bugs formed a major part of the development journey. Some of the more prominent bugs encountered during testing are outlined below. All bugs have been fixed.
+- Building and deploying a more data-intensive app, such as an interactive to-do list, involved resolving numerous bugs, which formed a significant part of the development journey. Below are some of the more prominent bugs encountered during testing, all of which have been fixed.
 
+- Initially, JSHint showed many warnings (over 300). The majority of these were missing semicolons, particularly in instances where variables were not properly assigned. All issues were addressed and resolved.
 
+- The CSS Jigsaw validator identified incorrect input text (`display: flex 1 auto`) and unused CSS properties that I had previously implemented but were no longer necessary. These were removed, and the display property was updated to simply `display: flex`.
 
+- The HTML validator reported incorrect `<id>` usage, where I accidentally assigned the same id to multiple elements. I switched to using classes instead.
 
--	JSHint initially showed many, many warnings (over 300). The majority of these were missing semicolons, for instances where I did not properly assign variables. All were fixed
--	CSS Jigsaw validator identified wrong input text (`display: flex 1 auto`) and unused CSS properties which I previously implemented but was no longer used. They were removed and the display property updated to simply `display: flex`.
+- Implementing the ability to edit the text of an existing item proved to be the trickiest task. Initially, I attempted to use popup boxes (prompts) but wanted to avoid them. Eventually, I enabled in-line editing by using JavaScript to replace the existing text field with a transparent, borderless text input. This feature required extensive debugging and testing to get right. Ensuring JavaScript accepted the new text item (of the recently created text field) took considerable time to achieve.
 
--	The HTML validator reported wrong `<id>` usage where I accidentally assigned the same `id`to multiple elements. I switched to using classes instead.
+- Debugging the various user functions such as 'Sort' or 'Clear' required thorough testing. This involved printing the main Array (on which the to-do list items are based) to the console and meticulously going through the functions step by step to identify any errors.
 
--	The ability to edit the text of an existing item proved the trickiest to implement. I initially tried using popup boxes (prompts) but wanted to avoid them and ended up allowing for in-line editing by using JavaScript to replace the existing text field with a transparent, borderless text input. This feature probably took the most debugging and testing to get right. Getting JavaScript to accept the new text item (of the recently created text field) took time to get right.
+- Initially, the text input accepted any input, including blank spaces. To address this, I implemented text validation as described above.
 
--	Getting the various user functions such as ‘Sort’ or ‘Clear’ to work required lots of debugging. This meant printing the main Array (on which the to do list items are based) to the console and going through the functions step by step to check where errors were creeping in.
+- I later realized that editing the text of an existing item allowed users to bypass text validation. To address this, I implemented the same validation process used for new items, also for existing items being edited.
 
--	The text input accepted any input, including black spaces. This was when I started implementing text validation as described above.
+- The text input still accepted an input consisting of a continuous string of letters without spaces. This caused the text display in the to-do list to break the design, with the text bleeding out of bounds into the background. To address this issue, the CSS overflow: hidden property was implemented.
 
--	I later realised that editing the text of an existing item allowed users to bypass text validation, so had to implement the same validation process used for new items, also for existing items being edited.
+- Initially, the Hover functionality was implemented on all screen sizes, which resulted in odd visual indicators when buttons were clicked on mobile devices. This was resolved using a Media Query.
 
--	The text input (still) accepts an input consisting of a continuous string of letters without spaces. This led to the text display in the to do list breaking the design, with the text bleeding out of bounds, into the background. For this the CSS `overflow: hidden`property was implemented.
-
--	The Hover functionality was initially implemented on all screen sizes which let to weird visual indicators when buttons were clicked on mobile. This was solved using a Media Query.
-
--	The Information Box popup initially was tied to the `<main>`tag which meant it covered the header when the screen vertical size was very long. To solve this I tied its positioning to the header itself, instead of to the `<main>`tag.
+- Initially, the Information Box popup was tied to the `<main>` tag, which caused it to cover the header when the screen vertical size was very long. To solve this issue, I tied its positioning to the header itself instead of to the `<main>` tag.
 
 
 ## Deployment

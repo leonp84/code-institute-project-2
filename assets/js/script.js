@@ -244,7 +244,6 @@ function editItemText() {
         if (lArray[i].content == this.textContent) { numToChange = i; }
     }
     let oldText = lArray[numToChange].content;
-    console.log(oldText)
 
     let replace = document.createElement('input');
     replace.type = "text";
@@ -260,7 +259,11 @@ function editItemText() {
         let newContent = document.getElementById('editing').value; 
 
         /* Validate Edited Text*/
-
+        if (newContent === oldText) {
+            displayList();
+            return;
+        }
+        
         /* Ensure Empty input or spaces are not accepted as valid */
         if (!newContent.match(/[A-Za-z0-9]/g)) { 
             console.log('no');

@@ -188,7 +188,7 @@ function displayList(type) {
         checkbutton.addEventListener('mouseover', hoverEffect);
         let xButton = newListItem.children[1].children[1];
         xButton.addEventListener('mouseover', hoverEffect);
-        xButton.addEventListener('click', removeItem);
+        xButton.addEventListener('click', warningBox);
         let itemText = newListItem.children[0].children[1];
         itemText.addEventListener('mouseover', hoverEffect);
         itemText.addEventListener('click', editItemText);
@@ -221,26 +221,36 @@ function strikeItem () {
     if (soundEffects) { document.getElementById('strikethrough-audio').play(); }
 }
 
-
 /**
- * Remove item from Todo list
+ * When 'x' us clicked, first present a user prompt to confirm cancellation
  */
-function removeItem () {
-
+function warningBox() {
     /* First Display warning, asking user te confirm deletion */
+    let itemToDelete = this.parentNode.previousElementSibling.children[1].textContent;
     let currentClass = document.getElementById('warning-box').className;
     let listDisplay = "";
     let darkMode = (document.body.className === 'body-dark');
         if (darkMode) { listDisplay = 'info-box-dark'; } else { listDisplay = 'info-box-light'; }
 
     document.getElementById('warning-box').setAttribute('class', `${listDisplay}`);
+    
+    document.getElementById('no-delete-button').addEventListener('click', function() { 
+        document.getElementById('warning-box').setAttribute('class', 'hidden');
+        displayList();
+    })
+    document.getElementById('yes-delete-button').addEventListener('click', function() { 
+        document.getElementById('warning-box').setAttribute('class', 'hidden');  
+        removeItem(itemToDelete); 
+    })
+}
 
-
-
-
+/**
+ * Remove item from Todo list
+ */
+function removeItem (itemToDelete) {
     let tempArray = [];
     for (let i in lArray) {
-        if (this.parentNode.previousElementSibling.children[1].textContent !== lArray[i].content) {
+        if (itemToDelete !== lArray[i].content) {
             tempArray.push(lArray[i]); 
     }}
     lArray = tempArray;

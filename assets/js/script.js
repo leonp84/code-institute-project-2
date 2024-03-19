@@ -64,8 +64,7 @@ function addItem(userInput) {
     /* Ensure duplicate items are not accepted as valid */
     for (let i in lArray) {
         if (lArray[i].content === userInput) {
-            alert("*! You've already added this item !*");
-            clearFocus();
+            showDuplicateNotice();
             return;
         }
     }
@@ -215,19 +214,20 @@ function strikeItem () {
             lArray[i].priority = false;
         }
     }
-    displayList();
 
     /* Sound Effect - if enabled */
     if (soundEffects) { document.getElementById('strikethrough-audio').play(); }
+
+    displayList();
+    clearFocus();
 }
 
 /**
- * When 'x' us clicked, first present a user prompt to confirm cancellation
+ * When 'x' is clicked, first present a user prompt to confirm cancellation
  */
 function warningBox() {
     /* First Display warning, asking user te confirm deletion */
     let itemToDelete = this.parentNode.previousElementSibling.children[1].textContent;
-    let currentClass = document.getElementById('warning-box').className;
     let listDisplay = "";
     let darkMode = (document.body.className === 'body-dark');
         if (darkMode) { listDisplay = 'info-box-dark'; } else { listDisplay = 'info-box-light'; }
@@ -237,11 +237,12 @@ function warningBox() {
     document.getElementById('no-delete-button').addEventListener('click', function() { 
         document.getElementById('warning-box').setAttribute('class', 'hidden');
         displayList();
-    })
+        clearFocus();
+    });
     document.getElementById('yes-delete-button').addEventListener('click', function() { 
         document.getElementById('warning-box').setAttribute('class', 'hidden');  
         removeItem(itemToDelete); 
-    })
+    });
 }
 
 /**
@@ -255,6 +256,7 @@ function removeItem (itemToDelete) {
     }}
     lArray = tempArray;
     displayList();
+    clearFocus();
 }
 
 /**
@@ -290,7 +292,7 @@ function editItemText() {
         if (!newContent.match(/[A-Za-z0-9]/g)) { 
             console.log('no');
             lArray[numToChange].content = oldText;
-            console.log(lArray[numToChange].content)
+            console.log(lArray[numToChange].content);
             displayList();
             return;
         }
@@ -299,8 +301,7 @@ function editItemText() {
         for (let i in lArray) {
             if (lArray[i].content === newContent) {
                 lArray[numToChange].content = oldText;
-                alert("*! You've already added this item !*");
-                displayList();
+                showDuplicateNotice();
                 return;
             }
         }
@@ -363,6 +364,9 @@ function toggleTheme() {
         if (document.getElementById('warning-box').className !== 'hidden') { 
             document.getElementById('warning-box').setAttribute('class', 'info-box-light');
         }
+        if (document.getElementById('notice-box').className !== 'hidden') { 
+            document.getElementById('notice-box').setAttribute('class', 'info-box-light');
+        }
         for (let i = 0; i < x.length; i++) {
             x[i].setAttribute('class', 'li-light'); }
 
@@ -380,6 +384,9 @@ function toggleTheme() {
         }
         if (document.getElementById('warning-box').className !== 'hidden') { 
             document.getElementById('warning-box').setAttribute('class', 'info-box-dark');
+        }
+        if (document.getElementById('notice-box').className !== 'hidden') { 
+            document.getElementById('notice-box').setAttribute('class', 'info-box-dark');
         }
         for (let i = 0; i < x.length; i++) {
             x[i].setAttribute('class', 'li-dark'); }
@@ -453,4 +460,18 @@ function showInfo() {
     } else {
         document.getElementById('info-box').setAttribute('class', 'hidden');
     }
+}
+
+/**
+ * Show/Hide info box when info button clicked by user
+ */
+function showDuplicateNotice() {
+    let listDisplay = "";
+    let darkMode = (document.body.className === 'body-dark');
+        if (darkMode) { listDisplay = 'info-box-dark'; } else { listDisplay = 'info-box-light'; }
+        document.getElementById('notice-box').setAttribute('class', `${listDisplay}`);
+        setTimeout(function() { document.getElementById('notice-box').setAttribute('class', 'hidden'); }, "2000");
+        displayList();
+        clearFocus();
+        return;
 }

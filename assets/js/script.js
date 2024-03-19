@@ -226,7 +226,6 @@ function strikeItem () {
  * When 'x' is clicked, first present a user prompt to confirm cancellation
  */
 function warningBox() {
-    /* First Display warning, asking user te confirm deletion */
     let itemToDelete = this.parentNode.previousElementSibling.children[1].textContent;
     let listDisplay = "";
     let darkMode = (document.body.className === 'body-dark');
@@ -463,7 +462,7 @@ function showInfo() {
 }
 
 /**
- * Show/Hide info box when info button clicked by user
+ * Show info dupicate notice when user enters duplicate item, with a 2.5 second delay
  */
 function showDuplicateNotice() {
     let listDisplay = "";

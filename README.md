@@ -65,7 +65,7 @@ The sentences below outline possible motivations of *potential users* visiting t
 
 #### Site Administrator
 
-> As the site administrator, I want to help visitors with managing their daily tasks in a intuitive and distraction free environment.
+> As the site administrator, I want to help visitors with managing their daily tasks in an intuitive and distraction free environment.
 
 > As the site administrator, I want visitors to increase their productivity by incorporating habits of daily planning and scheduling into their workflow.
 
@@ -89,7 +89,7 @@ As a not-for-profit endeavour, I wanted the TODO online web app to serve visitor
 
 ### Wireframing
 
-After the site concept was finalised, time was taken to create a wireframe mock-up of the app. The app consists of a single landing page with hidden visual elements (an information box) that the user can toggle. Wireframing was done with [Balsamiq](https://balsamiq.com/) software.
+After the site concept was finalised, time was taken to create a wireframe mock-up of the app. The app consists of a single landing page with hidden visual elements (an information, warning and notice box) that the user can toggle. Wireframing was done with [Balsamiq](https://balsamiq.com/) software.
 
 #### Desktop
 
@@ -135,10 +135,10 @@ The Header is fully responsive, and the heading font colours adjust with the res
 
 The two right most buttons dynamically update when clicked, to indicate to the user that a feature has been activated/deactivated. 
 
-*Site Header Button Not Activated*<br>
+*Site Header Buttons Not Activated*<br>
 ![Site Header Buttons Not Clicked](assets/images/readme-images/readme-nclicked.webp)
 
-*Site Header Button  Activated*<br>
+*Site Header Buttons  Activated*<br>
 ![ Site Header Buttons Clicked](assets/images/readme-images/readme-clicked.webp)
 
 With the sound toggle on, five sound effects are played – depending on the browser and user environment - when users perform the following actions (These functionalities are explained in more detail below): 
@@ -171,7 +171,7 @@ Below the header, the main user input is presented. Here the user can enter a ne
 
 2. Accepts the click of the Priority button also as valid form submission (only if valid text is present in the text field).
 
-3. Does **not** accept black spaces or tabs as valid input.
+3. Does **not** accept blank spaces or tabs as valid input.
 
 4. Does **not** accept text that equal that of an item already in the list, to avoid duplicate items. When a duplicate item is entered, the user is warned via a custom alert box.
 
@@ -187,7 +187,7 @@ Each task is listed in the order they were entered, with priority tasks addition
 
 *Features of this section:*
 
-1. Once a task is finished, users can check the **circle next to it** and the visual display of the task updates. The cricle (checkbox) now remains checked, and the text is displayed with the **line-through text** decoration to indicate the task is done. Items can then again be unchecked, if the user so desires.
+1. Once a task is finished, users can check the **circle next to it** and the visual display of the task updates. The circle (checkbox) now remains checked, and the text is displayed with the **line-through text** decoration to indicate the task is done. Items can then again be unchecked, if the user so desires.
 
 ![Items Checked in To do List](assets/images/readme-images/readme-items-checked.webp)
 

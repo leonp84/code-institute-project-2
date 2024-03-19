@@ -98,7 +98,6 @@ input:focus {
 #checkbox {
     font-size: 18px;
     padding-right: 5px;
-    ;
 }
 
 #vacation-message {
@@ -311,7 +310,7 @@ footer span {
 
 #editing {
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid transparent;
     font-size: inherit;
     font-family: inherit;
     color: inherit;

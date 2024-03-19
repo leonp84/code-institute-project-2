@@ -1,6 +1,6 @@
 # T O D O
 
-Welcome to the Readme file for TODO, a multi-functional online to do app using HTML, CSS & JavaScript.
+Welcome to the Readme file for TODO, a multi-functional online to do app built with HTML, CSS & JavaScript.
 
 **A note to the assessors:** *As recommended by my Code Institute Mentor, I want to mention that I built the JavaScript part of this app in a previous repository to first check whether the project was feasible with my current skill level. With the development of **this**, final project, some code from that previous built was then copied and pasted into this one. I mention that in case the short time frame between commits of (especially) the JavaScript part of this project raise any red flags.*
 
@@ -270,7 +270,7 @@ The site was extensively tested using various screen sizes of different heights/
 |Editing Existing Items|Users cannot enter invalid text when editing items|Enter invalid text: Blank spaces and tabs| <span style="color: green; font-weight:bold">Pass</span> |
 |Editing Existing Items|Duplicate items are not allowed when editing text of existing items|Enter Duplicate Item as new list text content| <span style="color: green; font-weight:bold">Pass</span> |
 |Remove Item Button|Users can always remove items from list|Click on Remove Item Icon| <span style="color: green; font-weight:bold">Pass</span> |
-|Check Items|Users are able to check items off their list|Click on Circle box to the left of item text| <span style="color: green; font-weight:bold">Pass</span> |
+|Check Items|Users are able to check items off their list|Click on Circle 'checkbox' to the left of item text| <span style="color: green; font-weight:bold">Pass</span> |
 |User Controls|Clicking ‘All’ shows all list items|Click on the ‘All’ button| <span style="color: green; font-weight:bold">Pass</span> |
 |User Controls|Clicking ‘Active’ only shows active list items|Click on the ‘Active’ button| <span style="color: green; font-weight:bold">Pass</span> |
 |User Controls|Clicking ‘Done’ only shows completed list items|Click on the ‘Done’ button| <span style="color: green; font-weight:bold">Pass</span> |

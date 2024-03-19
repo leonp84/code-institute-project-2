@@ -125,7 +125,7 @@ input:focus {
 #userInput {
     background-color: transparent;
     border: 1px solid transparent;
-    padding: 5px;
+    padding: 5px 5px 5px 8px;
     margin: 0 5px;
     font-size: 15px;
     font-family: "poppins", sans-serif;

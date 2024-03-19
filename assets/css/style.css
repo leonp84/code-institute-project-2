@@ -249,6 +249,7 @@ footer span {
     font-size: medium;
     width: 90%;
     max-width: 500px;
+    line-height: 200%;
     height: auto;
     text-align: center;
     z-index: 99;
@@ -280,7 +281,8 @@ footer span {
     width: 80%;
     height: auto;
     text-align: center;
-    font-size: small;
+    font-size: medium;
+    line-height: 200%;
     max-width: 500px;
     z-index: 99;
     /* The 'position', 'top', 'left', and 'transform' properties where copied from an external source, see readme.md */

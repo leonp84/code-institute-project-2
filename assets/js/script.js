@@ -470,7 +470,7 @@ function showDuplicateNotice() {
     let darkMode = (document.body.className === 'body-dark');
         if (darkMode) { listDisplay = 'info-box-dark'; } else { listDisplay = 'info-box-light'; }
         document.getElementById('notice-box').setAttribute('class', `${listDisplay}`);
-        setTimeout(function() { document.getElementById('notice-box').setAttribute('class', 'hidden'); }, "2000");
+        setTimeout(function() { document.getElementById('notice-box').setAttribute('class', 'hidden'); }, "2500");
         displayList();
         clearFocus();
         return;

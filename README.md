@@ -2,8 +2,6 @@
 
 Welcome to the Readme file for TODO, a multi-functional online to do app built with HTML, CSS & JavaScript.
 
-**A note to the assessors:** *As recommended by my Code Institute Mentor, I want to mention that I built the JavaScript part of this app in a previous repository to first check whether the project was feasible with my current skill level. With the development of **this**, final project, some code from that previous built was then copied and pasted into this one. I mention that in case the short time frame between commits of (especially) the JavaScript part of this project raise any red flags.*
-
 ![Site Screenshot showing responsiveness across devices](assets/images/readme-images/website-mockups.webp)
 
 **Link to Live Site: https://leonp84.github.io/code-institute-project-2/**
@@ -35,6 +33,8 @@ Welcome to the Readme file for TODO, a multi-functional online to do app built w
     - [Validator Testing](#validator-testing)
     - [Lighthouse Testing](#lighthouse-testing)
     - [Bugs](#bugs)
+        - [Fixed](#fixed)
+        - [Unfixed](#unfixed)
 5. [Deployment](#deployment)
     - [Links](#links)
 6. [Credits](#credits)
@@ -175,6 +175,8 @@ Below the header, the main user input is presented. Here the user can enter a ne
 
 4. Does **not** accept text that equal that of an item already in the list, to avoid duplicate items. When a duplicate item is entered, the user is warned via a Browser alert.
 
+![Duplicate Item Alert](assets/images/readme-images/readme-duplicate-warning.webp)
+
 5. After each iteration where the new list is displayed (or other features of the app engaged in) focus is placed back on the user input field, and the field is emptied of any previous text. This avoids the user needing to constantly re-click on the text box to enter items.
 
 #### Main List Display
@@ -191,7 +193,9 @@ Each task is listed in the order they were entered, with priority tasks addition
 
 2. Each item's text can be clicked on, and the text automatically turns into an input field, with the current text now editable. Users can change the text and press ‘Enter’ to save the new wording. The edited items remain in place and is subject to the same validation process as regular new items.
 
-3. Users can completely remove tasks from the list by clicking the ‘X’ to the right of each displayed item.
+3. Users can completely remove tasks from the list by clicking the ‘X’ to the right of each displayed item. A custom confirmation box pops up to get delete confirmation.
+
+![Delete Warning Box](assets/images/readme-images/readme-confirm-delete.webp)
 
 4. On larger screens, the item text and remove buttons includes a hover effect for visual feedback.
 
@@ -293,12 +297,12 @@ The site was extensively tested using various screen sizes of different heights/
 <br>
 
 **- Cross Browser Testing**
-| Browser | Resolution | Result |
-|--|--|--|
-|Chrome|1200px|<span style="color: green; font-weight:bold">Very Good</span>|
-|Edge|1200px|<span style="color: green; font-weight:bold">Very Good</span>|
-|Firefox|1200px|<span style="color: green; font-weight:bold">Very Good</span>|
-|Safari|768px|<span style="color: green; font-weight:bold">Very Good</span>|
+| Browser | Resolution | Result | Issues |
+|--|--|--|--|
+|Chrome|1200px|<span style="color: green; font-weight:bold">Very Good</span>|None|
+|Edge|1200px|<span style="color: green; font-weight:bold">Very Good</span>|None|
+|Firefox|1200px|<span style="color: green; font-weight:bold">Very Good</span>|None|
+|Safari|768px|<span style="color: green; font-weight:bold">Good</span>|Minor Visual Glitch (see [Bugs](#unfixed) section)|
 
 ### Validator Testing
 
@@ -319,6 +323,8 @@ The site was tested with Google Lighthouse using Chrome Developer Tools and the 
 ![Lighthouse Test Results](assets/images/readme-images/readme-lighthouse-test.webp)
 
 ### Bugs
+
+#### Fixed
 
 Building and deploying a more data-intensive app, such as an interactive to-do list, involved resolving numerous bugs, which formed a significant part of the development journey. Below are some of the more prominent bugs encountered during testing, all of which have been fixed.
 
@@ -342,6 +348,9 @@ Building and deploying a more data-intensive app, such as an interactive to-do l
 
 - Initially, the Information Box popup was tied to the `<main>` tag, which caused it to cover the header when the screen vertical size was very long. To solve this issue, I tied its positioning to the header itself instead of to the `<main>` tag.
 
+#### Unfixed
+
+On Safari mobile browsers, an odd phenomenon occurs where the user-input text field briefly repositions its content when the backspace button is pressed inside the input field. I experimented with adjusting the positioning and padding of the input element, but without success. This behavior hasn't been observed in any other tested browser, leading me to believe it's specific to Safari. As it's only a minor visual glitch, I've chosen to leave it unresolved, as it was consuming too much of my debugging time.
 
 ## Deployment
 
@@ -364,7 +373,7 @@ GitHub Repository: https://github.com/leonp84/code-institute-project-2
 
 ### Content
 
--	General design and content inspired by the Todo App challenge on [Fontend Mentor]( https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
+-   General design and content inspired by the Todo App challenge on [Fontend Mentor]( https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 
 -	The following fonts are provided by [Google Fonts]( https://fonts.google.com): "Poppins", "Quicksand", "Roboto".
 
@@ -372,7 +381,11 @@ GitHub Repository: https://github.com/leonp84/code-institute-project-2
 
 - W3Schools proved an invaluable resource in helping with the following: <br>(1) [Array Sorting by Object Property]( https://www.scaler.com/topics/javascript-sort-an-array-of-objects/) <br>(2) [Using the Array.filter method](https://www.w3schools.com/jsref/jsref_filter.asp)<br>(3) [Using Javascript to play HTML Audio]( https://www.w3schools.com/jsref/met_audio_play.asp) <br> (3) [Using CSS ‘overflow: hidden’ with ‘display: inline-block’](https://www.w3schools.com/css/css_overflow.asp)
 
+- The CSS `transform: translate` styling was adapted from [shecodes.io](https://www.shecodes.io/athena/121718-how-to-use-transform-translate-50-50-to-center-an-element-in-cs) and inspired by an example given by [ChatGPT](https://chat.openai.com).
+
 - The tests and exercises at [JSCodeBox](https://jscodebox.com/) proved especially helpful in refining my Javascript skills for this project and helping me deal with JavaScript Arrays, Objects and its properties.
+
+- The JavaScript part of this app was initially partly built, by myself in a [different GitHub repository](https://github.com/leonp84/ci-course/blob/main/script.js) to first check whether the project was feasible with my current skill level. With the development of **this**, final project, some code from that previous build was then copied and pasted into this one. All code was written solely by myself.
 
 ### Media
 

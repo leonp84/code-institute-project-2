@@ -173,7 +173,7 @@ Below the header, the main user input is presented. Here the user can enter a ne
 
 3. Does **not** accept black spaces or tabs as valid input.
 
-4. Does **not** accept text that equal that of an item already in the list, to avoid duplicate items. When a duplicate item is entered, the user is warned via a Browser alert.
+4. Does **not** accept text that equal that of an item already in the list, to avoid duplicate items. When a duplicate item is entered, the user is warned via a custom alert box.
 
 ![Duplicate Item Alert](assets/images/readme-images/readme-duplicate-warning.webp)
 
@@ -350,7 +350,7 @@ Building and deploying a more data-intensive app, such as an interactive to-do l
 
 #### Unfixed
 
-On Safari mobile browsers, an odd phenomenon occurs where the user-input text field briefly repositions its content when the backspace button is pressed inside the input field. I experimented with adjusting the positioning and padding of the input element, but without success. This behavior hasn't been observed in any other tested browser, leading me to believe it's specific to Safari. As it's only a minor visual glitch, I've chosen to leave it unresolved, as it was consuming too much of my debugging time.
+- On Safari mobile browsers, an odd phenomenon occurs where the user-input text field briefly repositions its content when the backspace button is pressed inside the input field. I experimented with adjusting the positioning and padding of the input element, but without success. This behavior hasn't been observed in any other tested browser, leading me to believe it's specific to Safari. As it's only a minor visual glitch, I've chosen to leave it unresolved, as it was consuming too much of my debugging time.
 
 ## Deployment
 

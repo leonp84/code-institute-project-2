@@ -226,6 +226,18 @@ function strikeItem () {
  * Remove item from Todo list
  */
 function removeItem () {
+
+    /* First Display warning, asking user te confirm deletion */
+    let currentClass = document.getElementById('warning-box').className;
+    let listDisplay = "";
+    let darkMode = (document.body.className === 'body-dark');
+        if (darkMode) { listDisplay = 'info-box-dark'; } else { listDisplay = 'info-box-light'; }
+
+    document.getElementById('warning-box').setAttribute('class', `${listDisplay}`);
+
+
+
+
     let tempArray = [];
     for (let i in lArray) {
         if (this.parentNode.previousElementSibling.children[1].textContent !== lArray[i].content) {
@@ -338,6 +350,9 @@ function toggleTheme() {
         if (document.getElementById('info-box').className !== 'hidden') { 
             document.getElementById('info-box').setAttribute('class', 'info-box-light');
         }
+        if (document.getElementById('warning-box').className !== 'hidden') { 
+            document.getElementById('warning-box').setAttribute('class', 'info-box-light');
+        }
         for (let i = 0; i < x.length; i++) {
             x[i].setAttribute('class', 'li-light'); }
 
@@ -352,6 +367,9 @@ function toggleTheme() {
         let x = document.getElementsByTagName('li');
         if (document.getElementById('info-box').className !== 'hidden') { 
             document.getElementById('info-box').setAttribute('class', 'info-box-dark');
+        }
+        if (document.getElementById('warning-box').className !== 'hidden') { 
+            document.getElementById('warning-box').setAttribute('class', 'info-box-dark');
         }
         for (let i = 0; i < x.length; i++) {
             x[i].setAttribute('class', 'li-dark'); }
